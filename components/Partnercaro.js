@@ -27,7 +27,7 @@ export default function Partnercaro() {
   }, [index]); // Depend on index to reset interval when index changes
 
   return (
-    <section className="pt-5 pb-5">
+    <section className="pt-5 pb-5 " id="partner">
       <div className="col-12 d-flex align-items-center">
         <div className=" mb-3 mr-1" onClick={handlePrev}>
           <img className="lefticon" alt="100%x280" src="left.png" />

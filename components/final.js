@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from "react";
 
 export default function Final() {
   const [index, setIndex] = useState(0);
@@ -28,120 +28,157 @@ export default function Final() {
 
   return (
     <section className="pt-5 pb-5">
-     
-      <div className='col-12 d-flex align-items-center'>
-      <div className=" mb-3 mr-1" onClick={handlePrev}>
-      <img className="lefticon" alt="100%x280" src="left.png" />
-    </div>
-      <div className="col text-right">
-      <div className="container">
-        <div className="row">
-        
-        
-          
-          </div>
-          <div className="col-12">
-            <div id="carouselExampleIndicators2" className="carousel slide" data-ride="carousel">
-              <div className="carousel-inner">
-                <div className={`carousel-item ${index === 0 ? 'active' : ''}`}>
-                  <div className="row">
-                    <div className="col-md-3 mb-3">
-                      <div className="card">
-                        <img className="img-fluidd" alt="100%x280" src="/job1.jpg" />
-                     
+      <div className="col-12 d-flex align-items-center">
+        <div className=" mb-3 mr-1" onClick={handlePrev}>
+          <img className="lefticon" alt="100%x280" src="left.png" />
+        </div>
+        <div className="col text-right">
+          <div className="">
+            <div className="row"></div>
+            <div className="col-12">
+              <div
+                id="carouselExampleIndicators2"
+                className="carousel slide"
+                data-ride="carousel"
+              >
+                <div className="carousel-inner">
+                  <div
+                    className={`carousel-item ${index === 0 ? "active" : ""}`}
+                  >
+                    <div className="row">
+                      <div className="col-md-3 mb-3">
+                        <div className="e">
+                          <img
+                            className="img-fluidd"
+                            alt="100%x280"
+                            src="/job1.jpg"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="col-md-3 mb-3">
+                        <div className="e">
+                          <img
+                            className="img-fluidd"
+                            alt="100%x280"
+                            src="/job2.jpg"
+                          />
+                        </div>
+                      </div>
+                      <div className="col-md-3 mb-3">
+                        <div className="e">
+                          <img
+                            className="img-fluidd"
+                            alt="100%x280"
+                            src="/job3.jpg"
+                          />
+                        </div>
+                      </div>
+                      <div className="col-md-3 mb-3">
+                        <div className="e">
+                          <img
+                            className="img-fluidd"
+                            alt="100%x280"
+                            src="/job4.jpg"
+                          />
+                        </div>
                       </div>
                     </div>
+                  </div>
+                  <div
+                    className={`carousel-item ${index === 1 ? "active" : ""}`}
+                  >
+                    <div className="row">
+                      <div className="col-md-3 mb-3">
+                        <div className="e">
+                          <img
+                            className="img-fluidd"
+                            alt="100%x280"
+                            src="/job1.jpg"
+                          />
+                        </div>
+                      </div>
 
-                    <div className="col-md-3 mb-3">
-                    <div className="card">
-                      <img className="img-fluidd" alt="100%x280" src="/job2.jpg" />
-                   
+                      <div className="col-md-3 mb-3">
+                        <div className="e">
+                          <img
+                            className="img-fluidd"
+                            alt="100%x280"
+                            src="/job4.jpg"
+                          />
+                        </div>
+                      </div>
+                      <div className="col-md-3 mb-3">
+                        <div className="e">
+                          <img
+                            className="img-fluidd"
+                            alt="100%x280"
+                            src="/job2.jpg"
+                          />
+                        </div>
+                      </div>
+                      <div className="col-md-3 mb-3">
+                        <div className="e">
+                          <img
+                            className="img-fluidd"
+                            alt="100%x280"
+                            src="/job3.jpg"
+                          />
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div className="col-md-3 mb-3">
-                  <div className="card">
-                    <img className="img-fluidd" alt="100%x280" src="/job3.jpg" />
-                 
-                  </div>
-                </div>
-                <div className="col-md-3 mb-3">
-                <div className="card">
-                  <img className="img-fluidd" alt="100%x280" src="/job4.jpg" />
-               
-                </div>
-              </div>
-                  </div>
-                </div>
-                <div className={`carousel-item ${index === 1 ? 'active' : ''}`}>
-                  <div className="row">
-                  <div className="col-md-3 mb-3">
-                  <div className="card">
-                    <img className="img-fluidd" alt="100%x280" src="/job1.jpg" />
-                 
-                  </div>
-                </div>
+                  <div
+                    className={`carousel-item ${index === 2 ? "active" : ""}`}
+                  >
+                    <div className="row">
+                      <div className="col-md-3 mb-3">
+                        <div className="e">
+                          <img
+                            className="img-fluidd"
+                            alt="100%x280"
+                            src="/job4.jpg"
+                          />
+                        </div>
+                      </div>
 
-                <div className="col-md-3 mb-3">
-                <div className="card">
-                  <img className="img-fluidd" alt="100%x280" src="/job4.jpg" />
-               
-                </div>
-              </div>
-              <div className="col-md-3 mb-3">
-              <div className="card">
-                <img className="img-fluidd" alt="100%x280" src="/job2.jpg" />
-             
-              </div>
-            </div>
-            <div className="col-md-3 mb-3">
-            <div className="card">
-              <img className="img-fluidd" alt="100%x280" src="/job3.jpg" />
-           
-            </div>
-          </div>
-                  </div>
-                </div>
-                <div className={`carousel-item ${index === 2 ? 'active' : ''}`}>
-                  <div className="row">
-                  <div className="col-md-3 mb-3">
-                  <div className="card">
-                    <img className="img-fluidd" alt="100%x280" src="/job4.jpg" />
-                 
-                  </div>
-                </div>
-
-                <div className="col-md-3 mb-3">
-                <div className="card">
-                  <img className="img-fluidd" alt="100%x280" src="/job2.jpg" />
-               
-                </div>
-              </div>
-              <div className="col-md-3 mb-3">
-              <div className="card">
-                <img className="img-fluidd" alt="100%x280" src="/job3.jpg" />
-             
-              </div>
-            </div>
-            <div className="col-md-3 mb-3">
-            <div className="card">
-              <img className="img-fluidd" alt="100%x280" src="/job1.jpg" />
-           
-            </div>
-          </div>
+                      <div className="col-md-3 mb-3">
+                        <div className="e">
+                          <img
+                            className="img-fluidd"
+                            alt="100%x280"
+                            src="/job2.jpg"
+                          />
+                        </div>
+                      </div>
+                      <div className="col-md-3 mb-3">
+                        <div className="e">
+                          <img
+                            className="img-fluidd"
+                            alt="100%x280"
+                            src="/job3.jpg"
+                          />
+                        </div>
+                      </div>
+                      <div className="col-md-3 mb-3">
+                        <div className="e">
+                          <img
+                            className="img-fluidd"
+                            alt="100%x280"
+                            src="/job1.jpg"
+                          />
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-
-            
-          </div>
-
           </div>
         </div>
         <div className=" mb-3" onClick={handleNext}>
-        <img className="lefticon" alt="100%x280" src="right.png" />
-      </div>
-   
+          <img className="lefticon" alt="100%x280" src="right.png" />
+        </div>
       </div>
     </section>
   );

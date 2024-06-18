@@ -40,84 +40,84 @@
   --card-border-rgb: 131, 134, 135;
 }
 
-a{
-text-decoration: none !important;
-color: black !important;
-
+a {
+  text-decoration: none !important;
+  color: black !important;
 }
 
-h1{
+h1 {
   font-size: 30px;
   font-weight: bold;
 }
-h4{
+h4 {
   font-size: 18px !important;
 }
 
-.Imagesstudyicon{
-
+.Imagesstudyicon {
   width: 100%;
   height: 200px;
 }
 
-.mainSectionsec{
+.mainSectionsec {
   font-size: 20px;
   color: black;
   font-weight: 500;
   text-align: center;
 }
 
-.Imagessides{
+#partner .card {
+  width: 100% !important;
+  height: 375px !important;
 
-  width:100%;
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
+.card::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+.Imagessides {
+  width: 100%;
   height: 750px;
 }
 
-
-.Imagespassport{
-
-  width:100%;
+.Imagespassport {
+  width: 100%;
   height: 364px;
 }
 
 /* // journey */
 
 .bgstyle {
-  background-image: url('../public/jurneybg.png');
+  background-image: url("../public/jurneybg.png");
   background-size: cover; /* Ensure the image covers the entire element */
   background-repeat: no-repeat; /* Prevent the image from repeating */
   background-position: center; /* Center the image */
 }
 
-.sidehum{
-
-  width:20px;
+.sidehum {
+  width: 20px;
   height: 60px;
-
 }
 
-.Imagessidehide{
-  width: 100px;
+.Imagessidehide {
+  width: 100%;
 }
 
-
-.initalimg{
-
+.initalimg {
   height: 595px;
   width: 100%;
 }
 
-.disandfundimg{
-
+.disandfundimg {
   width: 100%;
   height: 270px;
-
 }
-.dreamimg{
-
+.dreamimg {
   width: 100%;
   height: 150px;
-
 }
 /* Custom CSS for slick carousel arrows */
 .slick-arrow {
@@ -150,6 +150,7 @@ h4{
 .image-container {
   position: relative;
   width: 100%;
+  margin-top: 20px;
   display: inline-block;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -184,43 +185,31 @@ h4{
   margin: 0;
 }
 
-.img-fluidd{
-
+.img-fluidd {
   width: 100%;
-  height: 300px;
-  object-fit: fill
-  
-  
-
+  height: 400px;
+  object-fit: fill;
 }
-.img-fluiddparr
-
-{
-width: 100%;
-height: 120px;
-
+.img-fluiddparr {
+  width: 100%;
+  object-fit: contain;
+  height: 120px;
 }
 
-.lefticon{
+.lefticon {
   width: 30px;
   height: 30px;
 }
 
-
-
-
-
 .Testmoniimg {
   width: 100%;
   height: 830px;
-  
 }
 
 .carousel-wrapper {
   width: 100%;
 
   margin-top: 120px;
- 
 }
 
 .slide {
@@ -243,6 +232,17 @@ height: 120px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.slidepartner {
+  display: flex;
+
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 20px;
+
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 .slide-img {
   width: 100px;
   height: 100px;
@@ -252,7 +252,6 @@ height: 120px;
 }
 
 .slide-content {
- 
 }
 
 .slide-content h3 {
@@ -263,42 +262,33 @@ height: 120px;
   margin: 0;
 }
 
-
-
-
-.testcaro{
+.testcaro {
   width: 100px;
   height: 200px;
-
 }
 
-
-.heading{
+.heading {
   width: 60%;
-  height:70px
+  height: 70px;
 }
 
-.topcent{
+.topcent {
   margin-top: 120px !important;
- 
 }
-
 
 .partnerbg {
-  background-image: url('../public/partnerbg.png');
+  background-image: url("../public/partnerbg.png");
   background-size: cover; /* Ensure the image covers the entire element */
   background-repeat: no-repeat; /* Prevent the image from repeating */
   background-position: center; /* Center the image */
 }
 
-
 .Bannerbg {
-  background-image: url('../public/BannerImg.jpg');
+  background-image: url("../public/BannerImg.jpg");
   background-size: cover; /* Ensure the image covers the entire element */
   background-repeat: no-repeat; /* Prevent the image from repeating */
   background-position: top; /* Center the image */
-  width: '100%';
-
+  width: "100%";
 }
 
 .slidesBannerbg {
@@ -306,15 +296,12 @@ height: 120px;
   flex-direction: column;
   align-items: center;
 
- 
-  
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.bannerstyle{
+.bannerstyle {
   padding-top: 700px;
   padding-right: 100px;
-  
 }
 
 .carousel-wrapperr {
@@ -322,24 +309,22 @@ height: 120px;
 }
 
 .slider {
-  background-image: url('../public/BannerImg.jpg');
+  background-image: url("../public/BannerImg.jpg");
   background-size: cover; /* Ensure the image covers the entire element */
   background-repeat: no-repeat; /* Prevent the image from repeating */
   background-position: center; /* Center the image */
   width: 100%;
   height: 100vh; /* Adjust the height as needed */
   display: flex;
-  padding-top:120px;
+  padding-top: 120px;
   justify-content: center;
   align-items: center;
 }
 
 .banner-contentr {
   color: white;
- 
+
   border-radius: 10px;
-  
- 
 }
 
 .d-flexr {
@@ -347,24 +332,21 @@ height: 120px;
 }
 
 .gapr-3 {
- /* Adjust the gap between elements */
+  /* Adjust the gap between elements */
 }
-.headername{
-  color: #24415F !important;
+.headername {
+  color: #24415f !important;
   line-height: 40px;
   font-size: 30px;
   font-weight: bold;
-  
-  
 }
 
-.buttonstyleapply{
-
+.buttonstyleapply {
   width: 40%;
   height: 55px;
-padding: 10px 0px 1px 0px;
-border-radius: 20px;
-background-color: #24415F;
+  padding: 10px 0px 1px 0px;
+  border-radius: 20px;
+  background-color: #24415f;
   /* align-items: center;
   display: flex;
   justify-content: center;
@@ -372,22 +354,15 @@ background-color: #24415F;
   margin-top: 20px;
 }
 
-
 /* Header */
-
-
 
 .logstyle {
   width: 150px;
-  height:100px;
+  height: 100px;
   align-items: center !important;
   justify-content: center !important;
   display: flex !important;
- 
-  
 }
-
-
 
 /* Add this CSS to your stylesheet */
 /* Header.css */
@@ -396,17 +371,17 @@ background-color: #24415F;
   position: relative;
 }
 
-.navstylee{
+.navstylee {
   font-size: 20px;
-  font-weight:700;
-  color: #24415F !important;
+  font-weight: 700;
+  color: #24415f !important;
   cursor: pointer;
+  white-space: nowrap;
 }
 .navstylee:hover {
   transition: ease-in-out;
 
   color: rgb(5, 47, 232) !important;
-
 }
 
 .header-menu .services-menu {
@@ -433,263 +408,267 @@ background-color: #24415F;
 .services-menu p:hover {
   background-color: #f0f0f0;
 }
-.buttonstylcontact{
- 
+.buttonstylcontact {
   width: 20%;
-padding: 20px 5px 5px 5px;
-border-top-left-radius: 20px;
-border-bottom-left-radius: 20px;
-background-color: #24415F;
+  padding: 20px 5px 5px 5px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-color: #24415f;
   align-items: center;
   display: flex;
   justify-content: center;
   height: 45px;
 }
-.contactustext{
+.contactustext {
   color: white;
   align-items: center;
   text-align: center;
   justify-content: center;
   display: flex;
   font-size: 20px;
+  white-space: nowrap;
 }
 
-.hiddennav{
+.hiddennav {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.socialicon{
+.socialicon {
   margin-top: 20px;
   font-size: 20px;
-  color: #24415F;
+  color: #24415f;
   margin: 20px;
 }
-.desstyle{
-
+.desstyle {
   font-size: 15px;
-  color: #24415F;
+  color: #24415f;
   margin: 0px;
-
 }
 
 .slidescontact {
-  background-color:#FAFCFD;
- width:80% !important;
+  background-color: #fafcfd;
+  width: 80% !important;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-
-.inputstyle{
+.inputstyle {
   border: 1px solid white;
-  background-color: rgb(249, 242, 242);
-  width:60% !important;
-  height:30px;
+  background-color: #e7e7e7;
+  width: 60% !important;
+  height: 30px;
   border-radius: 5px;
-  margin-top:10px
+  margin-top: 10px;
 }
-.inputstylearea{
+.inputstylearea {
   border: 1px solid gray;
-  background-color: rgb(249, 242, 242);
-  width:60% !important;
-  height:70px;
+  background-color: #e7e7e7;
+  width: 60% !important;
+  height: 70px;
   border-radius: 5px;
-  margin-top:10px
+  margin-top: 10px;
 }
-.contactuss{
-  margin-left:50px !important
+.contactuss {
+  margin-left: 50px !important;
 }
-.contactusstext{
+.contactusstext {
+  margin-left: 20px;
+}
+.submitbutton {
+  margin-top: 10px;
+  color: white;
+  background-color: #24415f;
+  border: 1px solid white;
+  width: 60%;
+  border-radius: 5px;
+}
 
-  margin-left:20px
-}
-.submitbutton{
-  margin-top:10px;
-color:white;
-  background-color: #24415F;
-  border:1px solid white;
-  width:60%;
-  border-radius:5px
-  
-}
-@media (min-width: 768px) {
-
-  .sideimageparahide{
-   display: none;
-
-   
+/* @media (min-width: 768px) {
+  .sideimageparahide {
+    display: none;
   }
-  
-  
-   
- }
+} */
 
+/* Default styles for screens below 768px */
+.sideimageparahide {
+  display: block;
+}
 
+.sideimagepara {
+  display: none;
+}
 
+/* Styles for screens 768px and above */
+@media (min-width: 768px) {
+  .sideimageparahide {
+    display: none;
+  }
+
+  .sideimagepara {
+    display: block;
+  }
+}
 
 @media (max-width: 768px) {
-
- .sideimagepara{
-  display: none;
- }
-
-  .logstyle {
-    width: 140px;
-    height:70px;
-   
-   
-    
+  .Imagesstudyicon {
+    width: 100%;
+    height: 170px;
   }
-  .contactustext{
-   
-    font-size: 18px;
-  }
-  
-  .navstylee{
-    font-size: 10px;
-    font-weight:700;
-    color: #24415F !important;
-    cursor: pointer;
-  }
-
-  .buttonstylcontact{
- 
-    width: 25%;
-  padding: 15px 5px 5px 5px;
-
-    height: 40px;
-  }
-}
-
-@media (max-width: 490px) {
-  .logstyle {
-    width: 90px;
-    height:50px;
-   
-   
-    
-  }
-
-  .buttonstyleapply{
-
+  .buttonstyleapply {
     width: 40%;
-    height: 35px;
-  padding: 6px 0px 1px 0px;
-  border-radius: 20px;
-  
+    height: 40px;
+    padding: 6px 0px 1px 0px;
+    border-radius: 20px;
+
     /* align-items: center;
     display: flex;
     justify-content: center;
     height: 40px; */
     margin-top: 20px;
   }
-  .error{
-    color:red
-  }
-  .navstylee{
-    font-size: 10px;
-    font-weight:500;
-    color: #24415F !important;
-    cursor: pointer;
-    white-space:nowrap;
-  }
- 
+  /* .sideimagepara {
+    display: none;
+  } */
 
-  .buttonstylcontact{
- 
+  .logstyle {
+    width: 140px;
+    height: 70px;
+  }
+  .contactustext {
+    font-size: 16px;
+  }
+
+  .navstylee {
+    font-size: 10px;
+    font-weight: 700;
+    color: #24415f !important;
+    cursor: pointer;
+  }
+
+  .buttonstylcontact {
     width: 25%;
-  padding: 15px 5px 5px 5px;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-  background-color: #24415F;
+    padding: 15px 5px 5px 5px;
+
+    height: 40px;
+  }
+}
+
+@media (max-width: 490px) {
+  .inputstyle {
+    width: 100% !important;
+  }
+  .inputstylearea {
+    width: 100% !important;
+  }
+  .mainSectionsec {
+    font-size: 12px;
+  }
+  .topcent {
+    margin-top: 0px !important;
+  }
+  .logstyle {
+    width: 90px;
+    height: 50px;
+  }
+
+  .buttonstyleapply {
+    width: 40%;
+    height: 35px;
+    padding: 6px 0px 1px 0px;
+    border-radius: 20px;
+
+    /* align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 40px; */
+    margin-top: 20px;
+  }
+  .error {
+    color: red;
+  }
+  .navstylee {
+    font-size: 10px;
+    font-weight: 500;
+    color: #24415f !important;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .buttonstylcontact {
+    width: 25%;
+    padding: 15px 5px 5px 5px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color: #24415f;
     align-items: center;
     display: flex;
     justify-content: center;
     height: 40px;
   }
-  .contactustext{
- 
+  .contactustext {
     font-size: 12px;
   }
 }
 
-
-
-
-
-
-
-
 .Footerstyle {
-        
-  background: linear-gradient(90deg, rgba(23, 51, 94, 100) 14%, rgba(28, 42, 29, 100) 95%);
+  background: linear-gradient(
+    90deg,
+    rgba(23, 51, 94, 100) 14%,
+    rgba(28, 42, 29, 100) 95%
+  );
 
- 
-    
-
-    
- 
-    .mainpowered{
-      margin-top: 50px;
-      box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
-
-    }
-    .powered{
-      margin-top: 40px;
-      color: #ffffff;
-      font-size: 12px;
-
-    }
-              
+  .mainpowered {
+    margin-top: 50px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+  }
+  .powered {
+    margin-top: 40px;
+    color: #ffffff;
+    font-size: 12px;
+  }
 }
 
-
-.footericon{
+.footericon {
   font-size: 30px;
-  color:white
+  color: white;
 }
 
-.footericonloco{
+.footericonloco {
   font-size: 20px;
-  color:white
+  color: white;
 }
 
-.footericonlocosocial{
+.footericonlocosocial {
   font-size: 20px;
-  color:white;
+  color: white;
   margin: 20px;
 }
 
-.footerstext{
-
-  margin-left:10px;
-  color:white
-  ; margin-top: 10px;
+.footerstext {
+  margin-left: 10px;
+  color: white;
+  margin-top: 10px;
   cursor: pointer;
 }
 
-.footerstextt{
-
-  margin-left:10px;
-  color:white
-  ; margin-top: 0px;
+.footerstextt {
+  margin-left: 10px;
+  color: white;
+  margin-top: 0px;
   cursor: pointer;
 }
-.footerstextt:hover{
-
+.footerstextt:hover {
   color: greenyellow;
   transition: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-.footerstext:hover{
-
+.footerstext:hover {
   color: greenyellow;
   transition: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-
-.headermain{
-  background-color:  #FCFEFD
+.headermain {
+  background-color: #fcfefd;
 }
