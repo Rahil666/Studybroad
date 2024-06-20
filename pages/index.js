@@ -1,3 +1,4 @@
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import BannerCarousel from "@/components/BannerCaro";
 import Carousel from "@/components/carousel";
@@ -7,13 +8,13 @@ import Head from "next/head";
 import Header from "@/components/Header/Header";
 import Partnercaro from "@/components/Partnercaro";
 import { useState } from "react";
-import { FaPhoneAlt } from "react-icons/fa";
-import { FaWhatsapp } from "react-icons/fa";
-import { FaFacebookF } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
-import { FaLocationDot } from "react-icons/fa6";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaPhoneAlt, FaWhatsapp, FaFacebookF, FaInstagram } from "react-icons/fa";
+import { FaLocationDot, FaXTwitter } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
+import MyCarousel from "@/components/Owlcarosel";
+import Testmoni from "@/components/carousel";
+
+
 
 export default function Home() {
   const [formData, setFormData] = useState({
@@ -522,52 +523,18 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="  container mt-5 ">
+        <div className="  container mt-3 ">
           <div className=" pt-5 ">
             <div className="d-flex align-items-center  gap-4 ">
               <img src="/sidehum.png" className="sidehum" />
-              <h1>Our Dream Destination</h1>
+              <h1>Choose Your Favourite Study Destinations</h1>
             </div>
-
-            <div className="col-12 ">
-              <div className="row mt-5">
-                <div className="col-md-3">
-                  <div className="image-container">
-                    <img src="\Germanpng.png" className="dreamimg" />
-                    <div className="overlay">
-                      <p className="title">Germany</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="col-md-3">
-                  <div className="image-container">
-                    <img src="\Uk.png" className="dreamimg" />
-                    <div className="overlay">
-                      <p className="title">U K</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="col-md-3">
-                  <div className="image-container">
-                    <img src="\Malta.jpg" className="dreamimg" />
-                    <div className="overlay">
-                      <p className="title">Malta</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="col-md-3">
-                  <div className="image-container">
-                    <img src="\Usa.png" className="dreamimg" />
-                    <div className="overlay">
-                      <p className="title">U S A</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <div>
+            <div className=' mt-5'>
+         <MyCarousel/>
+         </div>
+          </div>
+          
           </div>
         </div>
 
@@ -575,7 +542,7 @@ export default function Home() {
           <div className="container pt-5 ">
             <div className="d-flex align-items-center  gap-4 ">
               <img src="/sidehum.png" className="sidehum" />
-              <h1>Job Vacany Abroad</h1>
+              <h1>Professional Destinations</h1>
             </div>
             <FinalCarousel />
           </div>
@@ -591,7 +558,7 @@ export default function Home() {
                 <img src="/heading.png" className="heading" />
               </div>
               <div className=" topcent">
-                <Carousel />
+                <Testmoni />
               </div>
             </div>
           </div>

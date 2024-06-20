@@ -1,185 +1,161 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from 'react';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
-export default function Final() {
-  const [index, setIndex] = useState(0);
+const Final = (props) => {
+  const [deviceType, setDeviceType] = useState('desktop'); // Default device type
 
-  // Define the number of carousel items (assuming 3 in this case)
-  const numItems = 3;
-
-  // Function to handle next slide
-  const handleNext = () => {
-    setIndex((index + 1) % numItems); // Use modulo to wrap around
-  };
-
-  // Function to handle previous slide
-  const handlePrev = () => {
-    setIndex((index - 1 + numItems) % numItems); // Ensure positive index with modulo
-  };
-
-  // Auto loop interval setup
+  // Detect device type on component mount
   useEffect(() => {
-    const interval = setInterval(() => {
-      handleNext();
-    }, 3000); // Change slide every 3 seconds (adjust as needed)
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setDeviceType('desktop');
+      } else if (window.innerWidth >= 464) {
+        setDeviceType('tablet');
+      } else {
+        setDeviceType('mobile');
+      }
+    };
 
-    // Clear interval on component unmount to prevent memory leaks
-    return () => clearInterval(interval);
-  }, [index]); // Depend on index to reset interval when index changes
+    // Set initial device type
+    handleResize();
+
+    // Event listener for window resize
+    window.addEventListener('resize', handleResize);
+
+    // Clean up event listener
+    return () => window.removeEventListener('resize', handleResize);
+  }, []); // Empty dependency array ensures this effect runs only on mount and unmount
+
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 4,
+      slidesToSlide: 3 // Number of slides to scroll at once
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+      slidesToSlide: 2
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+      slidesToSlide: 1
+    }
+  };
 
   return (
-    <section className="pt-5 pb-5">
-      <div className="col-12 d-flex align-items-center">
-        <div className=" mb-3 mr-1" onClick={handlePrev}>
-          <img className="lefticon" alt="100%x280" src="left.png" />
-        </div>
-        <div className="col text-right">
-          <div className="">
-            <div className="row"></div>
-            <div className="col-12">
-              <div
-                id="carouselExampleIndicators2"
-                className="carousel slide"
-                data-ride="carousel"
-              >
-                <div className="carousel-inner">
-                  <div
-                    className={`carousel-item ${index === 0 ? "active" : ""}`}
-                  >
-                    <div className="row">
-                      <div className="col-md-3 mb-3">
-                        <div className="e">
-                          <img
-                            className="img-fluidd"
-                            alt="100%x280"
-                            src="/job1.jpg"
-                          />
-                        </div>
-                      </div>
+    <Carousel
+      swipeable={true}
+      draggable={true}
+      showDots={true}
+      responsive={responsive}
+      ssr={true} // Server Side Rendering, true or false
+      infinite={true}
+      autoPlay={deviceType !== 'mobile'} // Auto play when not on mobile
+      autoPlaySpeed={10000}
+      keyBoardControl={true}
+      customTransition="all .5"
+      transitionDuration={500}
+      containerClass="carousel-container"
+      removeArrowOnDeviceType={['tablet', 'mobile','desktop']}
+      deviceType={deviceType} // 'desktop', 'tablet', or 'mobile'
+      dotListClass="custom-dot-list-style"
+      itemClass="carousel-item-padding-40-px"
+    >
+    
+      <div className='carouselitemjob'>
+        <div className='carousel-containerjob'> 
+      <img
+      className="carousel-imgjob"
+      alt="100%x280"
+      src="/workinluxembourg.jpg"
+    />
+    <div className="carousel-titlejob mt-1">Luxembourg</div>
+    <p className='desjob'>Luxembourg offers skilled jobs in finance, IT, and engineering, and unskilled jobs in hospitality, retail, and construction.</p>
+    </div>
+    </div>
+    <div className='carouselitemjob'>  
+      <div className='carousel-containerjob'> 
+      <img
+      className="carousel-img"
+      alt="100%x280"
+      src="/maltajob.png"
+    />
+    <div className="carousel-titlejob mt-1">Malta</div>
+    <p className='desjob'>
+    Malta's job market features opportunities in tourism and hospitality, finance, 
+    IT, and construction, reflecting its diverse economy and growing industries. 
+   
+    </p>
+    </div>
+    </div>
+    
+    <div className='carouselitemjob'>  
+    <div className='carousel-containerjob'> 
+    <img
+    className="carousel-img"
+    alt="100%x280"
+    src="/maltajob.png"
+  />
+  <div className="carousel-titlejob mt-1">EUROPE</div>
+  <p className='desjob'>
+  Malta's job market features opportunities in tourism and hospitality, finance, 
+  IT, and construction, reflecting its diverse economy and growing industries. 
+ 
+  </p>
+  </div>
+  </div>
 
-                      <div className="col-md-3 mb-3">
-                        <div className="e">
-                          <img
-                            className="img-fluidd"
-                            alt="100%x280"
-                            src="/job2.jpg"
-                          />
-                        </div>
-                      </div>
-                      <div className="col-md-3 mb-3">
-                        <div className="e">
-                          <img
-                            className="img-fluidd"
-                            alt="100%x280"
-                            src="/job3.jpg"
-                          />
-                        </div>
-                      </div>
-                      <div className="col-md-3 mb-3">
-                        <div className="e">
-                          <img
-                            className="img-fluidd"
-                            alt="100%x280"
-                            src="/job4.jpg"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className={`carousel-item ${index === 1 ? "active" : ""}`}
-                  >
-                    <div className="row">
-                      <div className="col-md-3 mb-3">
-                        <div className="e">
-                          <img
-                            className="img-fluidd"
-                            alt="100%x280"
-                            src="/job1.jpg"
-                          />
-                        </div>
-                      </div>
+  <div className='carouselitemjob'>  
+  <div className='carousel-containerjob'> 
+  <img
+  className="carousel-img"
+  alt="100%x280"
+  src="/maltajob.png"
+/>
+<div className="carousel-titlejob mt-1">POLAND</div>
+<p className='desjob'>
+Malta's job market features opportunities in tourism and hospitality, finance, 
+IT, and construction, reflecting its diverse economy and growing industries. 
 
-                      <div className="col-md-3 mb-3">
-                        <div className="e">
-                          <img
-                            className="img-fluidd"
-                            alt="100%x280"
-                            src="/job4.jpg"
-                          />
-                        </div>
-                      </div>
-                      <div className="col-md-3 mb-3">
-                        <div className="e">
-                          <img
-                            className="img-fluidd"
-                            alt="100%x280"
-                            src="/job2.jpg"
-                          />
-                        </div>
-                      </div>
-                      <div className="col-md-3 mb-3">
-                        <div className="e">
-                          <img
-                            className="img-fluidd"
-                            alt="100%x280"
-                            src="/job3.jpg"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className={`carousel-item ${index === 2 ? "active" : ""}`}
-                  >
-                    <div className="row">
-                      <div className="col-md-3 mb-3">
-                        <div className="e">
-                          <img
-                            className="img-fluidd"
-                            alt="100%x280"
-                            src="/job4.jpg"
-                          />
-                        </div>
-                      </div>
+</p>
+</div>
+</div>
 
-                      <div className="col-md-3 mb-3">
-                        <div className="e">
-                          <img
-                            className="img-fluidd"
-                            alt="100%x280"
-                            src="/job2.jpg"
-                          />
-                        </div>
-                      </div>
-                      <div className="col-md-3 mb-3">
-                        <div className="e">
-                          <img
-                            className="img-fluidd"
-                            alt="100%x280"
-                            src="/job3.jpg"
-                          />
-                        </div>
-                      </div>
-                      <div className="col-md-3 mb-3">
-                        <div className="e">
-                          <img
-                            className="img-fluidd"
-                            alt="100%x280"
-                            src="/job1.jpg"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className=" mb-3" onClick={handleNext}>
-          <img className="lefticon" alt="100%x280" src="right.png" />
-        </div>
-      </div>
-    </section>
+<div className='carouselitemjob'>  
+<div className='carousel-containerjob'> 
+<img
+className="carousel-img"
+alt="100%x280"
+src="/maltajob.png"
+/>
+<div className="carousel-titlejob mt-1">UAE</div>
+<p className='desjob'>
+Malta's job market features opportunities in tourism and hospitality, finance, 
+IT, and construction, reflecting its diverse economy and growing industries. 
+
+</p>
+</div>
+</div>
+<div className='carouselitemjob'>  
+<div className='carousel-containerjob'> 
+<img
+className="carousel-img"
+alt="100%x280"
+src="/maltajob.png"
+/>
+<div className="carousel-titlejob mt-1">NETHERLANDS</div>
+<p className='desjob'>
+Malta's job market features opportunities in tourism and hospitality, finance, 
+IT, and construction, reflecting its diverse economy and growing industries. 
+
+</p>
+</div>
+</div>
+    </Carousel>
   );
-}
+};
+
+export default Final;
