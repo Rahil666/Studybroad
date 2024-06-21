@@ -40,12 +40,13 @@ const Header = () => {
         </div>
       </div>
     </div>
+    <a  href='/#contactus' className='buttonstylcontact '>
+    <div >
 
-    <div className='buttonstylcontact'>
-<a  href='/#contactus'>
     <p className='contactustext '>Contact Us</p>
-    </a>
+   
     </div>
+    </a>
     </div>
   );
 }

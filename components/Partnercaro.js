@@ -20,7 +20,7 @@ export default function Partnercaro() {
   useEffect(() => {
     const interval = setInterval(() => {
       handleNext();
-    }, 13000); // Change slide every 3 seconds (adjust as needed)
+    }, 3000); // Change slide every 3 seconds (adjust as needed)
 
     // Clear interval on component unmount to prevent memory leaks
     return () => clearInterval(interval);

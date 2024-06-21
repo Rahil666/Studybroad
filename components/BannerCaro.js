@@ -48,7 +48,7 @@ const BannerCarousel = () => {
       des: 'Lorem ipsum dolor sit amet consectetur. Turpis sed pulvinar sed blandit rhoncus tellus senectus at quis. Mi at fermentum imperdiet velit magna a aliquam. Faucibus et quam ac elit placerat tristique vulputate. Elit sit varius condimentum tempor vel commodo malesuada. Lorem ipsum dolor sit amet consectetur. Turpis sed pulvinar sed blandit rhoncus tellus senectus at quis. Mi at fermentum imperdiet velit magna a'
     },
 
-    { id: 2, url: 'slider',
+    { id: 2, url: 'slider2',
       name: 'Study Abroad & Enhance Your Career Prospects',
        testimonial: 'Degree Bachelor',
         country: 'German',

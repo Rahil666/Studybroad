@@ -31,7 +31,7 @@ const Testmoni = (props) => {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
       items: 4,
-      slidesToSlide: 3 // Number of slides to scroll at once
+      slidesToSlide: 2 // Number of slides to scroll at once
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
@@ -49,111 +49,82 @@ const Testmoni = (props) => {
     <Carousel
       swipeable={true}
       draggable={true}
-      showDots={true}
+      showDots={false}
       responsive={responsive}
       ssr={true} // Server Side Rendering, true or false
       infinite={true}
       autoPlay={deviceType !== 'mobile'} // Auto play when not on mobile
-      autoPlaySpeed={10000}
+      autoPlaySpeed={100000}
       keyBoardControl={true}
       customTransition="all .5"
       transitionDuration={500}
-      containerClass="carousel-container"
+      containerClass="carousel-container "
       removeArrowOnDeviceType={['tablet', 'mobile','desktop']}
       deviceType={deviceType} // 'desktop', 'tablet', or 'mobile'
       dotListClass="custom-dot-list-style"
       itemClass="carousel-item-padding-40-px"
     >
     
-      <div className='carouselitemjob'>
-        <div className='carousel-containerjob'> 
+      <div className='carouselitemTestimonial'>
+        <div className='carousel-containerTestimonial'> 
       <img
-      className="carousel-imgjob"
+      className="carousel-imgTestimonial"
       alt="100%x280"
       src="/workinluxembourg.jpg"
     />
-    <div className="carousel-titlejob mt-1">Luxembourg</div>
-    <p className='desjob'>Luxembourg offers skilled jobs in finance, IT, and engineering, and unskilled jobs in hospitality, retail, and construction.</p>
+    <div className="carousel-titleTestimonial mt-1">Akhil</div> 
+    <p className='carousel-titleTestimonialsub '>STUDY VISA,SINGAPORE</p>
+    <p className='dessub '>Luxembourg offers skilled jobs in finance, IT, and engineering, and unskilled jobs in hospitality, retail, and construction.</p>
     </div>
     </div>
-    <div className='carouselitemjob'>  
-      <div className='carousel-containerjob'> 
-      <img
-      className="carousel-img"
-      alt="100%x280"
-      src="/maltajob.png"
-    />
-    <div className="carousel-titlejob mt-1">Malta</div>
-    <p className='desjob'>
-    Malta's job market features opportunities in tourism and hospitality, finance, 
-    IT, and construction, reflecting its diverse economy and growing industries. 
-   
-    </p>
-    </div>
-    </div>
-    
-    <div className='carouselitemjob'>  
-    <div className='carousel-containerjob'> 
-    <img
-    className="carousel-img"
-    alt="100%x280"
-    src="/maltajob.png"
-  />
-  <div className="carousel-titlejob mt-1">EUROPE</div>
-  <p className='desjob'>
-  Malta's job market features opportunities in tourism and hospitality, finance, 
-  IT, and construction, reflecting its diverse economy and growing industries. 
- 
-  </p>
-  </div>
-  </div>
 
-  <div className='carouselitemjob'>  
-  <div className='carousel-containerjob'> 
+
+
+    <div className='carouselitemTestimonial'>
+    <div className='carousel-containerTestimonial'> 
   <img
-  className="carousel-img"
+  className="carousel-imgTestimonial"
   alt="100%x280"
-  src="/maltajob.png"
+  src="/workinluxembourg.jpg"
 />
-<div className="carousel-titlejob mt-1">POLAND</div>
-<p className='desjob'>
-Malta's job market features opportunities in tourism and hospitality, finance, 
-IT, and construction, reflecting its diverse economy and growing industries. 
-
-</p>
+<div className="carousel-titleTestimonial mt-1">Arya</div>
+<p className='carousel-titleTestimonialsub '>WORK PERMIT VISA,POLAND</p>
+<p className='dessub'>Luxembourg offers skilled jobs in finance, IT, and engineering, and unskilled jobs in hospitality, retail, and construction.</p>
 </div>
 </div>
 
-<div className='carouselitemjob'>  
-<div className='carousel-containerjob'> 
+<div className='carouselitemTestimonial'>
+<div className='carousel-containerTestimonial'> 
 <img
-className="carousel-img"
+className="carousel-imgTestimonial"
 alt="100%x280"
-src="/maltajob.png"
+src="/workinluxembourg.jpg"
 />
-<div className="carousel-titlejob mt-1">UAE</div>
-<p className='desjob'>
-Malta's job market features opportunities in tourism and hospitality, finance, 
-IT, and construction, reflecting its diverse economy and growing industries. 
+<div className="carousel-titleTestimonial mt-1">Dileep</div>
+<p className='carousel-titleTestimonialsub '>WORK PERMIT VISA,UAE</p>
+<p className='dessub'>Luxembourg offers skilled jobs in finance, IT, and engineering, and unskilled jobs in hospitality, retail, and construction.</p>
+</div>
+</div>
 
-</p>
-</div>
-</div>
-<div className='carouselitemjob'>  
-<div className='carousel-containerjob'> 
+
+
+
+<div className='carouselitemTestimonial'>
+<div className='carousel-containerTestimonial'> 
 <img
-className="carousel-img"
+className="carousel-imgTestimonial"
 alt="100%x280"
-src="/maltajob.png"
+src="/workinluxembourg.jpg"
 />
-<div className="carousel-titlejob mt-1">NETHERLANDS</div>
-<p className='desjob'>
-Malta's job market features opportunities in tourism and hospitality, finance, 
-IT, and construction, reflecting its diverse economy and growing industries. 
+<div className="carousel-titleTestimonial mt-1">Shilpa</div>
+<p className='carousel-titleTestimonialsub '>VISIT  VISA,SINGAPORE</p>
+<p className='dessub'>Luxembourg offers skilled jobs in finance, IT, and engineering, and unskilled jobs in hospitality, retail, and construction.</p>
+</div>
+</div>
 
-</p>
-</div>
-</div>
+
+
+
     </Carousel>
   );
 };

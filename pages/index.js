@@ -13,6 +13,10 @@ import { FaLocationDot, FaXTwitter } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import MyCarousel from "@/components/Owlcarosel";
 import Testmoni from "@/components/carousel";
+import Universcites from "@/components/Universcites";
+import { RiArrowRightSLine } from "react-icons/ri";
+
+
 
 
 
@@ -113,13 +117,15 @@ export default function Home() {
   };
 
   const images = [
-    "documention.png",
-    "placing.png",
-    "documention.png",
-    "placing.png",
-    "documention.png",
-    "placing.png",
-    "documention.png",
+    "uni1.jpg",
+    "Uni2.jpg",
+    "Uni3.jpg",
+    "Uni4.jpg",
+     "uni1.jpg",
+    "Uni2.jpg",
+    "Uni3.jpg",
+    "Uni4.jpg",
+  
   ];
   return (
     <>
@@ -161,7 +167,7 @@ export default function Home() {
               <div className="col-md-3">
                 <img src="\Helpsupport.png" className="Imagesstudyicon" />
                 <p className=" mainSectionsec mt-2 align-items-center d-flex justify-content-center">
-                  {" "}
+                  
                   Help & Support
                 </p>
               </div>
@@ -495,7 +501,7 @@ export default function Home() {
             </div>
             <div className="row mt-5">
               <div className="col-md-4">
-                <img src="\initial.png" className="initalimg" />
+                <img src="\disscusion.png" className="initalimg" />
 
                 <p className=" mainSectionsec mt-2 align-items-center d-flex justify-content-center">
                   Initial Discussion
@@ -544,25 +550,25 @@ export default function Home() {
               <img src="/sidehum.png" className="sidehum" />
               <h1>Professional Destinations</h1>
             </div>
+            <div className="mt-3 ">
             <FinalCarousel />
+            </div>
           </div>
         </div>
 
-        <div className="col-12 container-fluid  sideimagepara">
-          <div className="row">
-            <div className="col-6 ">
-              <img src="/Testmoniimg.jpg" className="Testmoniimg" />
-            </div>
-            <div className="col-6 topcent">
-              <div className="d-flex align-items-center topcent justify-content-center mt-5 mb-5">
-                <img src="/heading.png" className="heading" />
-              </div>
-              <div className=" topcent">
-                <Testmoni />
-              </div>
-            </div>
-          </div>
+        <div className=" container ">
+        <div className="d-flex align-items-center  justify-content-center mt-5 mb-5 ">
+        <h1>Testimonial</h1>
         </div>
+        <Testmoni />
+            </div>
+          
+             
+              <div className=" container  bg-info">
+              
+           
+          </div>
+      
 
         <div className="col-12 container-fluid  sideimageparahide">
           <div className="col-12 topcent">
@@ -576,15 +582,61 @@ export default function Home() {
         </div>
 
         <div className="  partnerbg mt-5 ">
-          <div className="container pt-5 ">
-            <div className="d-flex align-items-center  gap-4 ">
-              <img src="/sidehum.png" className="sidehum" />
-              <h1>Our Partnering Universities</h1>
-            </div>
-            <Partnercaro />
+        <div className="container pt-5 ">
+          <div className="d-flex align-items-center  gap-4 ">
+            <img src="/sidehum.png" className="sidehum" />
+            <h1>Our Partnering Universities</h1>
+          </div>
+          <div className="container p-5 col-12">
+          <Universcites/>
           </div>
         </div>
+      </div>
 
+
+
+      <div className="  slider mt-5 ">
+      <div className="container pt-5 ">
+        <div className="d-flex align-items-center  justify-content-center ">
+         
+          <h1>Our Services</h1>
+        </div>
+        <div className="container p-5 col-12">
+        <div className='col-md-4'>
+        <div className=''>
+        <div className='d-flex align-items-center d-flex boxservices'>
+        
+        <RiArrowRightSLine className='footericon'/><p className="pt-3 footerstextservices">Immigration and  Study Abroad</p>
+        </div>
+        
+        
+        
+        
+        <div className='d-flex align-items-center d-flexc boxservices mt-3'>
+        <RiArrowRightSLine className='footericon'/><p className="pt-1 footerstextservices">Flight Ticket Bookings</p>
+        </div>
+        
+        <div className='d-flex align-items-center d-flex boxservices mt-3'>
+        <RiArrowRightSLine className='footericon'/><p className="pt-1 footerstextservices ">Visit Visa (All Countries)</p>
+        </div>
+        
+        <div className='d-flex align-items-center d-flex boxservices mt-3'>
+        <RiArrowRightSLine className='footericon'/><p className="pt-1 footerstextservices">Study Visa</p>
+        </div>
+        
+        <div className='d-flex align-items-center d-flex boxservices mt-3 mb-5'>
+        <RiArrowRightSLine className='footericon'/><p className="pt-1 footerstextservices">Work Permit</p>
+        </div>
+        
+        </div>
+        
+        
+        </div>
+        </div>
+      </div>
+    </div>
+
+       
         <div className="container  mt-5 mb-5 " id="contactus">
           <div className="container col-md-12 mt-5 slidescontact">
             <div className="row  ">
