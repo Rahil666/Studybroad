@@ -24,7 +24,7 @@ const Header = () => {
                 <div className='col-4 header-menu'>
                   <p className="services navstylee">SERVICES</p>
                   <div className="services-menu">
-                  <a href="https://wa.me/+918921565286" target="_blank" rel="noopener noreferrer">
+                  <a href="/#contactus" >
                     <p>Immigration and  Study Abroad</p>
                     <p>Flight Ticket Bookings</p>
                     <p>Visit Visa (All Countries)</p>

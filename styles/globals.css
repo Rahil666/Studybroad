@@ -97,6 +97,19 @@ h4 {
   background-position: center; /* Center the image */
 }
 
+
+.filling {
+  background-image: url("../public/withoutbg.png");
+  background-size: cover; /* Ensure the image covers the entire element */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  background-position: center; /* Center the image */
+  height:50vh;
+  padding-top: 100PX;
+
+ 
+  
+}
+
 .sidehum {
   width: 10px;
   height: 40px;
@@ -390,6 +403,25 @@ h4 {
   align-items: center;
 }
 
+
+.sliderServices {
+  background-image: url("../public/Studyvisa.jpg");
+  background-size: cover; /* Ensure the image covers the entire element */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  background-position: center; /* Center the image */
+  width: 100%;
+  height: 120vh; /* Adjust the height as needed */
+  display: flex;
+  padding-top: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.Severour{color:#24415f;
+  font-size: 50px !important;
+  line-height: 25px;
+ }
+
 .banner-contentr {
   color: white;
 
@@ -660,8 +692,8 @@ h4 {
     height: 40px; */
     margin-top: 20px;
   }
-  .error {
-    color: red;
+  .errormsg {
+    color: red !important;
   }
   .navstylee {
     font-size: 10px;
@@ -818,15 +850,24 @@ h4 {
 
 
 .carousel-containerTestimonial {
-  padding: 0px !important;
-  position: relative;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers the image horizontally */
+  justify-content: center; /* Centers the image vertically */
+  text-align: center; /* Centers the text below the image */
+}
+.bounce{
+  transition: transform 0.3s ease-in-out, 
 
 }
 
+.bounce:hover {
+  transform: scale(1.05);
+
+}
 .carouselitemTestimonial {
   border-radius: 5px !important;
-  
+  background-color:white;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   cursor: pointer;
@@ -843,18 +884,14 @@ h4 {
   width: 100px;
   height: 100px;
   object-fit: cover;
-  border-radius: 100px;
-  transform: translatex(100%);
-  
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  margin-top:20px
-
+  border-radius: 50%; /* Make the image circular */
+  margin-top: 20px;
 }
 
 
+
 .carousel-titleTestimonial {
+  margin-top: 10px;
   font-size: 18px;
   font-weight: 600;
   color: rgb(0, 0, 0);
@@ -866,6 +903,7 @@ h4 {
 }
 
 .carousel-titleTestimonialsub {
+  margin-top: 5px;
   font-size: 14px;
   font-weight: 500;
   color: rgb(0, 0, 0);
@@ -882,9 +920,10 @@ h4 {
 }
 .dessub{
   text-align: center;
-  padding-left: 10px;
-  padding-right:10px
-
+  /* padding-left: 10px;
+  padding-right:10px */
+  margin-top: 10px;
+  padding: 0 15px;
 }
 
 .carouselitemTestimonial:hover .carousel-titleTestimonial {
@@ -973,9 +1012,20 @@ h4 {
   background-color: #717171;
 } */
 
+.slick-next:before {
+  color: orange !important;
+ 
+}
+.slick-prev:before{
+  
+  color: orange !important;
+  margin-right: 80px !important;
+}
+
 .partner-bg-image {
   background-color: white;
-  max-width: 80%;
+  height: 100px ;
+  max-width: 70%;
   border-radius: 10px;
   display: flex;
   justify-content: center !important;
@@ -986,8 +1036,8 @@ h4 {
 }
 
 .partner-image {
-  height: 200px;
-  margin: 0 72px;
+  height: 100px;
+  margin: 0 52px;
   background-color: red !important;
   display: flex;
   justify-content: center !important;
@@ -1017,4 +1067,58 @@ h4 {
   color: white;
   margin-top: 10px;
   cursor: pointer;
+}
+
+
+
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.text-animation {
+  animation: slideUp 2s ease-in-out;
+}
+.linearbg{
+  background: linear-gradient(80deg, #24415f 41%,#07b5cd 85%);
+
+}
+
+
+
+@keyframes slideRightToLeft {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideRightToLeft {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-right-to-left {
+  animation: slideRightToLeft 1s ease-in-out forwards;
+}
+
+.hidden {
+  opacity: 0;
 }

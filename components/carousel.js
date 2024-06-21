@@ -54,7 +54,7 @@ const Testmoni = (props) => {
       ssr={true} // Server Side Rendering, true or false
       infinite={true}
       autoPlay={deviceType !== 'mobile'} // Auto play when not on mobile
-      autoPlaySpeed={100000}
+      autoPlaySpeed={3000}
       keyBoardControl={true}
       customTransition="all .5"
       transitionDuration={500}
@@ -65,7 +65,7 @@ const Testmoni = (props) => {
       itemClass="carousel-item-padding-40-px"
     >
     
-      <div className='carouselitemTestimonial'>
+      <div className='carouselitemTestimonial '>
         <div className='carousel-containerTestimonial'> 
       <img
       className="carousel-imgTestimonial"
@@ -74,7 +74,7 @@ const Testmoni = (props) => {
     />
     <div className="carousel-titleTestimonial mt-1">Akhil</div> 
     <p className='carousel-titleTestimonialsub '>STUDY VISA,SINGAPORE</p>
-    <p className='dessub '>Luxembourg offers skilled jobs in finance, IT, and engineering, and unskilled jobs in hospitality, retail, and construction.</p>
+    <p className='dessub '>Singapore offers skilled jobs in finance, IT, and engineering, and unskilled jobs in hospitality, retail, and construction.</p>
     </div>
     </div>
 
@@ -89,7 +89,7 @@ const Testmoni = (props) => {
 />
 <div className="carousel-titleTestimonial mt-1">Arya</div>
 <p className='carousel-titleTestimonialsub '>WORK PERMIT VISA,POLAND</p>
-<p className='dessub'>Luxembourg offers skilled jobs in finance, IT, and engineering, and unskilled jobs in hospitality, retail, and construction.</p>
+<p className='dessub'>Poland offers skilled jobs in finance, IT, and engineering, and unskilled jobs in hospitality, retail, and construction.</p>
 </div>
 </div>
 
@@ -102,7 +102,7 @@ src="/workinluxembourg.jpg"
 />
 <div className="carousel-titleTestimonial mt-1">Dileep</div>
 <p className='carousel-titleTestimonialsub '>WORK PERMIT VISA,UAE</p>
-<p className='dessub'>Luxembourg offers skilled jobs in finance, IT, and engineering, and unskilled jobs in hospitality, retail, and construction.</p>
+<p className='dessub'>Uae offers skilled jobs in finance, IT, and engineering, and unskilled jobs in hospitality, retail,oil, and construction.</p>
 </div>
 </div>
 
@@ -118,7 +118,7 @@ src="/workinluxembourg.jpg"
 />
 <div className="carousel-titleTestimonial mt-1">Shilpa</div>
 <p className='carousel-titleTestimonialsub '>VISIT  VISA,SINGAPORE</p>
-<p className='dessub'>Luxembourg offers skilled jobs in finance, IT, and engineering, and unskilled jobs in hospitality, retail, and construction.</p>
+<p className='dessub'>Singapore offers skilled jobs in finance, IT, and engineering, and unskilled jobs in hospitality, retail, and construction.</p>
 </div>
 </div>
 
