@@ -12,8 +12,9 @@ const BannerCarousel = () => {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 500,
+    speed: 3000,
     slidesToShow: 1,
+
     slidesToScroll: 1,
     arrows: false, 
     responsive: [

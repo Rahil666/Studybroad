@@ -49,7 +49,7 @@ const MyCarousel = (props) => {
     <Carousel
       swipeable={true}
       draggable={true}
-      showDots={true}
+      showDots={false}
       responsive={responsive}
       ssr={true} // Server Side Rendering, true or false
       infinite={true}

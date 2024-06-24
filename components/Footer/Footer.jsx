@@ -66,7 +66,7 @@ const Footer = () => {
 
 
 <div className='d-flex align-items-center d-flex'>
-<MdEmail className='footericonloco'/><p className="pt-1 footerstext">kateexodus@gmail.com</p>
+<MdEmail className='footericonloco'/><p className="pt-1 footerstext">info@kateexodus.com</p>
 </div>
 
 <div className='d-flex align-items-center d-flex'>

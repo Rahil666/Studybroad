@@ -11,7 +11,7 @@ const Universities = () => {
     autoplay: true,
     autoplaySpeed: 2000,
     pauseOnHover: false,
-    arrows: true,
+    arrows: false,
     responsive: [
       {
         breakpoint: 1024,

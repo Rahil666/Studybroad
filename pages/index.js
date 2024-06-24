@@ -17,24 +17,26 @@ import Universcites from "@/components/Universcites";
 import { RiArrowRightSLine } from "react-icons/ri";
 import { Modal, Button } from 'react-bootstrap';
 
-
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 
 
 
 
 export default function Home() {
+
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    selectOption: "",
-    message: "",
+    name: '',
+    email: '',
+    phone: '',
+    selectOption: '',
+    message: '',
   });
 
   const [errors, setErrors] = useState({});
-  const [userMsg, setUserMsg] = useState("");
+  const [userMsg, setUserMsg] = useState('');
   const [loader, setLoader] = useState(false);
-  const [showModal, setShowModal] = useState(false); // State for showing modal
+  const [showModal, setShowModal] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -44,34 +46,40 @@ export default function Home() {
     });
   };
 
+  const handlePhoneChange = (value) => {
+    setFormData({
+      ...formData,
+      phone: value,
+    });
+  };
+
   const validate = () => {
     const errors = {};
 
     if (!formData.name) {
-      errors.name = "Name is required";
+      errors.name = 'Name is required';
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formData.email) {
-      errors.email = "Email is required";
+      errors.email = 'Email is required';
     } else if (!emailRegex.test(formData.email)) {
-      errors.email = "Email is invalid";
+      errors.email = 'Email is invalid';
     }
 
-    const phoneRegex = /^[0-9]{10}$/;
     if (!formData.phone) {
-      errors.phone = "Phone number is required";
-    } else if (!phoneRegex.test(formData.phone)) {
-      errors.phone = "Phone number is invalid";
+      errors.phone = 'Phone number is required';
     }
 
     if (!formData.selectOption) {
-      errors.selectOption = "Please select an option";
+      errors.selectOption = 'Please select an option';
     }
 
     if (!formData.message) {
-      errors.message = "Message is required";
+      errors.message = 'Message Require';
     }
+
+ 
 
     return errors;
   };
@@ -84,15 +92,15 @@ export default function Home() {
       setLoader(true);
       try {
         const response = await fetch(
-          "https://lunarsenterprises.com:5003/studyabroad/contact-us",
+          'https://lunarsenterprises.com:5003/studyabroad/contact-us',
           {
-            method: "POST",
+            method: 'POST',
             headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-              name: formData.name,
+              name:formData.name,
               email: formData.email,
               phno: formData.phone,
               subject: formData.selectOption,
@@ -101,29 +109,30 @@ export default function Home() {
           }
         );
 
-        if (response.status === 200) {
-          setUserMsg("Email sent successfully!");
-          setShowModal(true); // Show modal on success
-          setLoader(false);
-      
-          setLoader(false);
-          // router.push("/thank-you"); // Uncomment if using a router
-          console.log("Response succeeded!");
+        const data = await response.json();
+
+        if (data.result === false) {
+          setUserMsg(data.message);
+          setShowModal(true);
+          console.log('Response indicates failure:', data.message);
         } else {
-          console.log("Something went wrong...please check");
-          setLoader(false);
+          console.log('Something went wrong...please check');
         }
       } catch (error) {
-        console.error("Error:", error);
+        console.error('Error:', error);
+      } finally {
         setLoader(false);
       }
     } else {
       setErrors(errors);
     }
   };
+
+
   const handleCloseModal = () => {
-    setShowModal(false); // Close modal
+    setShowModal(false);
   };
+
   const images = [
     "uni1.jpg",
     "Uni2.jpg",
@@ -173,8 +182,8 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Kate Exodus</title>
-        <meta name="description" content="Powered by Lunar Enterpises" />
+        <title> Study Abroad Enhance Your Career Prospects</title>
+        <meta name="description" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/Logo.png" />
       </Head>
@@ -186,32 +195,41 @@ export default function Home() {
         <div className="  container mt-5  sideimagepara">
         <div className="col-md-12  ">
           <div className="row">
-            <div ref={ref1} className="col-md-3">
-              <img src="\StudyAb.png" className="Imagesstudyicon" />
+       
+            <div ref={ref1} className="col-md-3  bounce">
+            <a href='/#contactus'>
+              <img src="\StudyAb.png" className="Imagesstudyicon bounce" />
 
               <p className=" mainSectionsec mt-2 align-items-center d-flex justify-content-center">
                 Study Abroad
               </p>
+              </a>
             </div>
-            <div ref={ref2} className="col-md-3">
-              <img src="\consulting.png" className="Imagesstudyicon" />
+            <div ref={ref2} className="col-md-3 ">
+            <a href='/#contactus'>
+              <img src="\consulting.png" className="Imagesstudyicon bounce" />
               <p className="mainSectionsec mt-2 align-items-center d-flex justify-content-center">
                 Consulting
               </p>
+              </a>
             </div>
             <div ref={ref3} className="col-md-3">
-              <img src="\jobhire.png" className="Imagesstudyicon" />
+            <a href='/#contactus'>
+              <img src="\jobhire.png" className="Imagesstudyicon bounce" />
               <p className=" mainSectionsec mt-2 align-items-center d-flex justify-content-center">
                 Abroad Job Assistances
               </p>
+              </a>
             </div>
 
-            <div ref={ref4}className="col-md-3">
-              <img src="\Helpsupport.png" className="Imagesstudyicon" />
+            <div ref={ref4} className="col-md-3">
+            <a href='/#contactus'>
+              <img src="\Helpsupport.png" className="Imagesstudyicon bounce" />
               <p className=" mainSectionsec mt-2 align-items-center d-flex justify-content-center">
                 
                 Help & Support
               </p>
+              </a>
             </div>
           </div>
         </div>
@@ -552,20 +570,20 @@ export default function Home() {
               </div>
               <div className="col-md-4 ">
               <div className='bounce'>
-                <img src="\documention.png" className="disandfundimg" />
+                <img src="\paper.png" className="disandfundimg" />
                 <p className="mainSectionsec mt-2 align-items-center d-flex justify-content-center">
                   Documention
                 </p>
                 </div>
                 <div className="col-md-12 bounce">
-                  <img src="\placing.png" className="disandfundimg" />
+                  <img src="\girlsplace.png" className="disandfundimg" />
                   <p className=" mainSectionsec mt-2 align-items-center d-flex justify-content-center">
                     Get Placing
                   </p>
                 </div>
               </div>
               <div className="col-md-4 bounce">
-                <img src="\funding.png" className="disandfundimg" />
+                <img src="\Cashing.png" className="disandfundimg" />
                 <p className=" mainSectionsec mt-2 align-items-center d-flex justify-content-center">
                   Funding
                 </p>
@@ -659,7 +677,7 @@ Exploring new destinations and experiencing diverse cultures begins with obtaini
 
       <div className="  sliderServices  ">
       <div className="container  ">
-        <div className="d-flex align-items-center  justify-content-center ">
+        <div className="d-flex align-items-center  justify-content-center mt-5">
          
         <h1 className='Severour'>Our Services</h1>
         </div>
@@ -715,9 +733,9 @@ Exploring new destinations and experiencing diverse cultures begins with obtaini
 
                   <div className="d-flex align-items-center d-flex">
                     <MdEmail />
-                    <a href="mailto:kateexodus@gmail.com">
+                    <a href="mailto:info@kateexodus.com">
                       <p className="pt-3 contactusstext">
-                        kateexodus@gmail.com
+                      info@kateexodus.com
                       </p>
                     </a>
                   </div>
@@ -751,81 +769,84 @@ Exploring new destinations and experiencing diverse cultures begins with obtaini
               </div>
 
               <form onSubmit={handleSubmit} className="col-md-6">
-                <div className="mb-2">
-                  <label>Full Name</label>
+              <div className="mb-2">
+                <label>Full Name</label>
+              </div>
+              <input
+                className="inputstyle"
+                placeholder=""
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+              />
+              {errors.name && <p style={{ color: 'red' }}>{errors.name}</p>}
+        
+              <div className="mt-2">
+                <label>Email</label>
+              </div>
+              <input
+                className="inputstyle"
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+              />
+              {errors.email && <p style={{ color: 'red' }}>{errors.email}</p>}
+        
+              <div className="">
+                <label>Contact Number</label>
+              </div>
+              <PhoneInput
+                country={'in'}
+                value={formData.phone}
+                onChange={handlePhoneChange}
+                inputClass="inputstyle"
+              />
+              {errors.phone && <p style={{ color: 'red' }}>{errors.phone}</p>}
+        
+              <div className="">
+                <label>Subject</label>
+              </div>
+              <select
+                className="inputstyle"
+                name="selectOption"
+                value={formData.selectOption}
+                onChange={handleChange}
+              >
+                <option value="">Services</option>
+                <option value="immigration">Immigration and Study Abroad</option>
+                <option value="flight">Flight Ticket Bookings</option>
+                <option value="visitVisa">Visit Visa</option>
+                <option value="studyVisa">Study Visa</option>
+                <option value="workPermit">Work Permit</option>
+              </select>
+              {errors.selectOption && <p style={{ color: 'red' }}>{errors.selectOption}</p>}
+        
+              <div className="">
+                <label>Message</label>
+              </div>
+              <textarea
+                className="inputstylearea"
+                placeholder=""
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+              />
+              {errors.message && <p style={{ color: 'red' }}>{errors.message}</p>}
+        
+              <button  className="submitbutton" type="submit">
+                Submit
+              </button>
+              {showModal && (
+                <div className="modal">
+                  <div className="modal-content">
+                    <span className="close" onClick={handleCloseModal}>&times;</span>
+                    <p>{userMsg}</p>
+                  </div>
                 </div>
-                <input
-                  className="inputstyle"
-                  placeholder=""
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                />
-                {errors.name && <p style={{color:'red'}}>{errors.name}</p>}
-
-                <div className="mt-2">
-                  <label>Email</label>
-                </div>
-                <input
-                  className="inputstyle"
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                />
-                {errors.email && <p style={{color:'red'}}>{errors.email}</p>}
-
-                <div className="">
-                  <label>Contact Number</label>
-                </div>
-                <input
-                  className="inputstyle"
-                  type="text"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                />
-                {errors.phone && <p style={{color:'red'}}>{errors.phone}</p>}
-
-                <div className="">
-                  <label>Subject</label>
-                </div>
-                <select
-                  className="inputstyle"
-                  name="selectOption"
-                  value={formData.selectOption}
-                  onChange={handleChange}
-                >
-                  <option value="">Services</option>
-                  <option value="immigration">
-                    Immigration and Study Abroad
-                  </option>
-                  <option value="flight">Flight Ticket Bookings</option>
-                  <option value="visitVisa">Visit Visa</option>
-                  <option value="studyVisa">Study Visa</option>
-                  <option value="workPermit">Work Permit</option>
-                </select>
-                {errors.selectOption && (
-                  <p style={{color:'red'}}>{errors.selectOption}</p>
-                )}
-
-                <div className="">
-                  <label>Message</label>
-                </div>
-                <textarea
-                  className="inputstylearea"
-                  placeholder=""
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                />
-                {errors.message && <p style={{color:'red'}}>{errors.message}</p>}
-
-                <button disabled={loader} className="submitbutton" type="submit">
-                  Submit
-                </button>
-              </form>
+              )}
+            </form>
              
               <Modal show={showModal} onHide={handleCloseModal}>
               <Modal.Header closeButton>

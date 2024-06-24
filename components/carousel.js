@@ -54,7 +54,7 @@ const Testmoni = (props) => {
       ssr={true} // Server Side Rendering, true or false
       infinite={true}
       autoPlay={deviceType !== 'mobile'} // Auto play when not on mobile
-      autoPlaySpeed={3000}
+      autoPlaySpeed={453000}
       keyBoardControl={true}
       customTransition="all .5"
       transitionDuration={500}
@@ -65,18 +65,7 @@ const Testmoni = (props) => {
       itemClass="carousel-item-padding-40-px"
     >
     
-      <div className='carouselitemTestimonial '>
-        <div className='carousel-containerTestimonial'> 
-      <img
-      className="carousel-imgTestimonial"
-      alt="100%x280"
-      src="/workinluxembourg.jpg"
-    />
-    <div className="carousel-titleTestimonial mt-1">Akhil</div> 
-    <p className='carousel-titleTestimonialsub '>STUDY VISA,SINGAPORE</p>
-    <p className='dessub '>Singapore offers skilled jobs in finance, IT, and engineering, and unskilled jobs in hospitality, retail, and construction.</p>
-    </div>
-    </div>
+   
 
 
 
@@ -85,11 +74,15 @@ const Testmoni = (props) => {
   <img
   className="carousel-imgTestimonial"
   alt="100%x280"
-  src="/workinluxembourg.jpg"
+  src="/Reviewimg.jpg"
 />
-<div className="carousel-titleTestimonial mt-1">Arya</div>
-<p className='carousel-titleTestimonialsub '>WORK PERMIT VISA,POLAND</p>
-<p className='dessub'>Poland offers skilled jobs in finance, IT, and engineering, and unskilled jobs in hospitality, retail, and construction.</p>
+<div className="carousel-titleTestimonial mt-1">ATHIRA T P
+</div>
+<p className='carousel-titleTestimonialsub '>JOB VISA, DUBAI</p>
+<div className='heightty'>
+<p className='dessub'>Great Service! I got a house maid job in dubai in a few weeks! 
+Thanks a lot to the staff for the help, i really appreciate that. I surely recommend Kate exodus immigration!</p>
+</div>
 </div>
 </div>
 
@@ -98,29 +91,26 @@ const Testmoni = (props) => {
 <img
 className="carousel-imgTestimonial"
 alt="100%x280"
-src="/workinluxembourg.jpg"
+src="/Reviewimg2.jpg"
 />
-<div className="carousel-titleTestimonial mt-1">Dileep</div>
-<p className='carousel-titleTestimonialsub '>WORK PERMIT VISA,UAE</p>
-<p className='dessub'>Uae offers skilled jobs in finance, IT, and engineering, and unskilled jobs in hospitality, retail,oil, and construction.</p>
+<div className="carousel-titleTestimonial mt-1">ABHIJITH K S
+</div>
+<p className='carousel-titleTestimonialsub '>JOB VISA, DUBAI</p>
+<div className='heightty
+
+
+
+'>
+<p className='dessub'>Superb experience!! I am very grateful for all the hard work you guys did on my file .I strongly recommend kate exodus Immigration to all because they are helpful, professional and their work is very detailed. I really like that 
+client satisfaction is the most important thing for them. I really love your service !!!</p>
+</div>
 </div>
 </div>
 
 
 
 
-<div className='carouselitemTestimonial'>
-<div className='carousel-containerTestimonial'> 
-<img
-className="carousel-imgTestimonial"
-alt="100%x280"
-src="/workinluxembourg.jpg"
-/>
-<div className="carousel-titleTestimonial mt-1">Shilpa</div>
-<p className='carousel-titleTestimonialsub '>VISIT  VISA,SINGAPORE</p>
-<p className='dessub'>Singapore offers skilled jobs in finance, IT, and engineering, and unskilled jobs in hospitality, retail, and construction.</p>
-</div>
-</div>
+
 
 
 
