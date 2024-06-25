@@ -1,40 +1,38 @@
-
 import "bootstrap/dist/css/bootstrap.min.css";
+import "react-phone-input-2/lib/style.css";
 import BannerCarousel from "@/components/BannerCaro";
-
 import FinalCarousel from "@/components/final";
 import Footer from "@/components/Footer/Footer";
 import Head from "next/head";
 import Header from "@/components/Header/Header";
-
-import { useEffect, useRef, useState } from "react";
-import { FaPhoneAlt, FaWhatsapp, FaFacebookF, FaInstagram } from "react-icons/fa";
-import { FaLocationDot, FaXTwitter } from "react-icons/fa6";
-import { MdEmail } from "react-icons/md";
 import MyCarousel from "@/components/Owlcarosel";
+import PhoneInput from "react-phone-input-2";
 import Testmoni from "@/components/carousel";
 import Universcites from "@/components/Universcites";
+import { useEffect, useRef, useState } from "react";
+import { Button, Modal, Spinner } from "react-bootstrap";
+import { FaLocationDot, FaXTwitter } from "react-icons/fa6";
+import { MdEmail } from "react-icons/md";
 import { RiArrowRightSLine } from "react-icons/ri";
-import { Modal, Button } from 'react-bootstrap';
 
-import PhoneInput from 'react-phone-input-2';
-import 'react-phone-input-2/lib/style.css';
-
-
-
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaPhoneAlt,
+  FaWhatsapp,
+} from "react-icons/fa";
 
 export default function Home() {
-
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    selectOption: '',
-    message: '',
+    name: "",
+    email: "",
+    phone: "",
+    selectOption: "",
+    message: "",
   });
 
   const [errors, setErrors] = useState({});
-  const [userMsg, setUserMsg] = useState('');
+  const [userMsg, setUserMsg] = useState("");
   const [loader, setLoader] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
@@ -57,29 +55,27 @@ export default function Home() {
     const errors = {};
 
     if (!formData.name) {
-      errors.name = 'Name is required';
+      errors.name = "Name is required";
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formData.email) {
-      errors.email = 'Email is required';
+      errors.email = "Email is required";
     } else if (!emailRegex.test(formData.email)) {
-      errors.email = 'Email is invalid';
+      errors.email = "Email is invalid";
     }
 
     if (!formData.phone) {
-      errors.phone = 'Phone number is required';
+      errors.phone = "Phone number is required";
     }
 
     if (!formData.selectOption) {
-      errors.selectOption = 'Please select an option';
+      errors.selectOption = "Please select an option";
     }
 
     if (!formData.message) {
-      errors.message = 'Message Require';
+      errors.message = "Message Require";
     }
-
- 
 
     return errors;
   };
@@ -92,15 +88,15 @@ export default function Home() {
       setLoader(true);
       try {
         const response = await fetch(
-          'https://lunarsenterprises.com:5003/studyabroad/contact-us',
+          "https://lunarsenterprises.com:5003/studyabroad/contact-us",
           {
-            method: 'POST',
+            method: "POST",
             headers: {
-              Accept: 'application/json',
-              'Content-Type': 'application/json',
+              Accept: "application/json",
+              "Content-Type": "application/json",
             },
             body: JSON.stringify({
-              name:formData.name,
+              name: formData.name,
               email: formData.email,
               phno: formData.phone,
               subject: formData.selectOption,
@@ -111,23 +107,24 @@ export default function Home() {
 
         const data = await response.json();
 
-        if (data.result === false) {
-          setUserMsg(data.message);
-          setShowModal(true);
-          console.log('Response indicates failure:', data.message);
+        if (data.result === true) {
+          // setUserMsg("Email Sent Successfully Our Team will Connect Soon !");
+
+          console.log("Response indicates failure:", data.message);
         } else {
-          console.log('Something went wrong...please check');
+          console.log("Something went wrong...please check");
         }
       } catch (error) {
-        console.error('Error:', error);
+        console.error("Error:", error);
       } finally {
         setLoader(false);
+        setShowModal(true);
+        setUserMsg("Email Sent Successfully Our Team will Connect Soon !");
       }
     } else {
       setErrors(errors);
     }
   };
-
 
   const handleCloseModal = () => {
     setShowModal(false);
@@ -138,11 +135,10 @@ export default function Home() {
     "Uni2.jpg",
     "Uni3.jpg",
     "Uni4.jpg",
-     "uni1.jpg",
+    "uni1.jpg",
     "Uni2.jpg",
     "Uni3.jpg",
     "Uni4.jpg",
-  
   ];
 
   const ref1 = useRef(null);
@@ -160,23 +156,23 @@ export default function Home() {
       const windowHeight = window.innerHeight;
 
       if (element1.getBoundingClientRect().top < windowHeight) {
-        element1.classList.add('animate-right-to-left');
+        element1.classList.add("animate-right-to-left");
       }
       if (element2.getBoundingClientRect().top < windowHeight) {
-        element2.classList.add('animate-right-to-left');
+        element2.classList.add("animate-right-to-left");
       }
       if (element3.getBoundingClientRect().top < windowHeight) {
-        element3.classList.add('animate-right-to-left');
+        element3.classList.add("animate-right-to-left");
       }
       if (element4.getBoundingClientRect().top < windowHeight) {
-        element4.classList.add('animate-right-to-left');
+        element4.classList.add("animate-right-to-left");
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
   return (
@@ -193,366 +189,369 @@ export default function Home() {
           <BannerCarousel />
         </div>
         <div className="  container mt-5  sideimagepara">
-        <div className="col-md-12  ">
-          <div className="row">
-       
-            <div ref={ref1} className="col-md-3  bounce">
-            <a href='/#contactus'>
-              <img src="\StudyAb.png" className="Imagesstudyicon bounce" />
-
-              <p className=" mainSectionsec mt-2 align-items-center d-flex justify-content-center">
-                Study Abroad
-              </p>
-              </a>
-            </div>
-            <div ref={ref2} className="col-md-3 ">
-            <a href='/#contactus'>
-              <img src="\consulting.png" className="Imagesstudyicon bounce" />
-              <p className="mainSectionsec mt-2 align-items-center d-flex justify-content-center">
-                Consulting
-              </p>
-              </a>
-            </div>
-            <div ref={ref3} className="col-md-3">
-            <a href='/#contactus'>
-              <img src="\jobhire.png" className="Imagesstudyicon bounce" />
-              <p className=" mainSectionsec mt-2 align-items-center d-flex justify-content-center">
-                Abroad Job Assistances
-              </p>
-              </a>
-            </div>
-
-            <div ref={ref4} className="col-md-3">
-            <a href='/#contactus'>
-              <img src="\Helpsupport.png" className="Imagesstudyicon bounce" />
-              <p className=" mainSectionsec mt-2 align-items-center d-flex justify-content-center">
-                
-                Help & Support
-              </p>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div className=" col-12 mt-5  sideimagepara">
-          <div className="row">
-            <div className="col-6">
-              <h1>Discover the World with Our Comprehensive Services</h1>
-
-              <p>
-                Perfect Job Consultancy is an India based recruitment
-                placement and training consultancy, having an ultimate package
-                of services for recruiters as well as jobseekers. When it
-                comes to placement consultancy, we hold specialization in
-                rendering effective solutions to clients’ variegated needs.
-                Right from Banking, Financial and Insurance to Manufacturing
-                and Hospitality to BPO/ IT, we extend one of kinds services
-                across multiple disciplines. Our workforce solutions are based
-                on market research, industry expertise and domain knowledge,
-                Thus, we provide competitive edge to both i.e. Recruiters and
-                Jobseekers.
-              </p>
-
-              <p>
-                We assist students with their travel and relocation for the
-                course of study thereby ensuring a worry-free transition.
-                Moving to another country, be it for study or settling, is no
-                trivial task. We understand the stress and pressure this phase
-                can cause. Excitement at times gives way to anxieties as one
-                gets to hear a lot of experiences about the country often true
-                or untrue, anxieties about the new land, people, customs take
-                over your senses. We view this as a transitional phase hence
-                offering a complete and thorough journey and relocation
-                service, leaving no stone unturned to ensure a smooth
-                transition. Our travel and relocation expertise enables you to
-                literally relax while we handle it all.
-              </p>
-              <p>
-                Many of us dream of a day when we can embark on an
-                international tour, but most feel lost when it comes to
-                planning out the said trip. While many of us lack the time it
-                takes to map out all the details of the international tour
-                packages, what can help us move our plan along is a trusted
-                partner turning our international tour from a dream to a goal.
-                If you’re looking for an international tour, you’ve come to
-                the right place. Here you will be able to search, plan and
-                book your perfect international tour packages along with
-                expert travel advice, in-depth destination information, and
-                lots of travel tips. You are sure to get inspired to travel
-                the world with SOTC India. To get you started planning your
-                next international tour, we have a wide range of International
-                holiday packages to choose from and for the avid traveler in
-                you, we have completely customized holiday options as well.
-              </p>
-            </div>
-
-            <div className="col-6">
-              <div className="col-12 ">
-                <div className="row">
-                  <div className=" col-6">
-                    <img src="\girlsss.png" className="Imagessides" />
-                  </div>
-
-                  <div className="col-6">
-                    <img src="\imagespass.png" className="Imagespassport" />
-                    <div className="mt-2">
-                      <img src="\Teamdis.png" className="Imagespassport" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className=" col-12 mt-5  sideimageparahide ">
-          <div className="col-6 align-items-center justify-content-center d-flex">
-            <div className="col-12  align-items-center justify-content-center d-flex">
-              <div className="row">
-                <div className=" col-8">
-                  <img src="\girlsss.png" className="Imagessidehide" />
-                </div>
-
-                <div className="col-4">
-                  <img src="\imagespass.png" className="Imagessidehide" />
-                  <div className="mt-2">
-                    <img src="\Teamdis.png" className="Imagessidehide" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-12  mt-3">
-            <h1>Discover the World with Our Comprehensive Services</h1>
-
-            <p>
-              Perfect Job Consultancy is an India based recruitment placement
-              and training consultancy, having an ultimate package of services
-              for recruiters as well as jobseekers. When it comes to placement
-              consultancy, we hold specialization in rendering effective
-              solutions to clients’ variegated needs. Right from Banking,
-              Financial and Insurance to Manufacturing and Hospitality to BPO/
-              IT, we extend one of kinds services across multiple disciplines.
-              Our workforce solutions are based on market research, industry
-              expertise and domain knowledge, Thus, we provide competitive
-              edge to both i.e. Recruiters and Jobseekers.
-            </p>
-
-            <p>
-              We assist students with their travel and relocation for the
-              course of study thereby ensuring a worry-free transition. Moving
-              to another country, be it for study or settling, is no trivial
-              task. We understand the stress and pressure this phase can
-              cause. Excitement at times gives way to anxieties as one gets to
-              hear a lot of experiences about the country often true or
-              untrue, anxieties about the new land, people, customs take over
-              your senses. We view this as a transitional phase hence offering
-              a complete and thorough journey and relocation service, leaving
-              no stone unturned to ensure a smooth transition. Our travel and
-              relocation expertise enables you to literally relax while we
-              handle it all.
-            </p>
-            <p>
-              Many of us dream of a day when we can embark on an international
-              tour, but most feel lost when it comes to planning out the said
-              trip. While many of us lack the time it takes to map out all the
-              details of the international tour packages, what can help us
-              move our plan along is a trusted partner turning our
-              international tour from a dream to a goal. If you’re looking for
-              an international tour, you’ve come to the right place. Here you
-              will be able to search, plan and book your perfect international
-              tour packages along with expert travel advice, in-depth
-              destination information, and lots of travel tips. You are sure
-              to get inspired to travel the world with SOTC India. To get you
-              started planning your next international tour, we have a wide
-              range of International holiday packages to choose from and for
-              the avid traveler in you, we have completely customized holiday
-              options as well.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div className="  container mt-5  sideimageparahide ">
-        <div className="col-md-12  ">
-          <div className="row">
-            <div className="col-6">
-              <div className="col-12">
-                <div className="col-12 ">
-                  <img src="\StudyAb.png" className="Imagesstudyicon" />
+          <div className="col-md-12  ">
+            <div className="row">
+              <div ref={ref1} className="col-md-3  bounce">
+                <a href="/#contactus">
+                  <img src="\StudyAb.png" className="Imagesstudyicon bounce" />
 
                   <p className=" mainSectionsec mt-2 align-items-center d-flex justify-content-center">
                     Study Abroad
                   </p>
-                </div>
-                <div className="col-12">
-                  <img src="\consulting.png" className="Imagesstudyicon" />
+                </a>
+              </div>
+              <div ref={ref2} className="col-md-3 ">
+                <a href="/#contactus">
+                  <img
+                    src="\consulting.png"
+                    className="Imagesstudyicon bounce"
+                  />
                   <p className="mainSectionsec mt-2 align-items-center d-flex justify-content-center">
                     Consulting
                   </p>
-                </div>
+                </a>
               </div>
-            </div>
-            <div className="col-6">
-              <div className="col">
-                <img src="\jobhire.png" className="Imagesstudyicon" />
-                <p className=" mainSectionsec mt-2 align-items-center d-flex justify-content-center">
-                  Abroad Job Assistances
-                </p>
+              <div ref={ref3} className="col-md-3">
+                <a href="/#contactus">
+                  <img src="\jobhire.png" className="Imagesstudyicon bounce" />
+                  <p className=" mainSectionsec mt-2 align-items-center d-flex justify-content-center">
+                    Abroad Job Assistances
+                  </p>
+                </a>
               </div>
 
-              <div className="col">
-                <img src="\Helpsupport.png" className="Imagesstudyicon" />
-                <p className=" mainSectionsec mt-2 align-items-center d-flex justify-content-center">
-                  {" "}
-                  Help & Support
-                </p>
+              <div ref={ref4} className="col-md-3">
+                <a href="/#contactus">
+                  <img
+                    src="\Helpsupport.png"
+                    className="Imagesstudyicon bounce"
+                  />
+                  <p className=" mainSectionsec mt-2 align-items-center d-flex justify-content-center">
+                    Help & Support
+                  </p>
+                </a>
               </div>
             </div>
           </div>
-        </div>
 
-        <div className=" col-12 mt-5  sideimagepara">
-          <div className="row">
-            <div className="col-6">
-              <h1>Discover the World with Our Comprehensive Services</h1>
+          <div className=" col-12 mt-5  sideimagepara">
+            <div className="row">
+              <div className="col-6">
+                <h1>Discover the World with Our Comprehensive Services</h1>
 
-              <p>
-                Perfect Job Consultancy is an India based recruitment
-                placement and training consultancy, having an ultimate package
-                of services for recruiters as well as jobseekers. When it
-                comes to placement consultancy, we hold specialization in
-                rendering effective solutions to clients’ variegated needs.
-                Right from Banking, Financial and Insurance to Manufacturing
-                and Hospitality to BPO/ IT, we extend one of kinds services
-                across multiple disciplines. Our workforce solutions are based
-                on market research, industry expertise and domain knowledge,
-                Thus, we provide competitive edge to both i.e. Recruiters and
-                Jobseekers.
-              </p>
+                <p>
+                  Perfect Job Consultancy is an India based recruitment
+                  placement and training consultancy, having an ultimate package
+                  of services for recruiters as well as jobseekers. When it
+                  comes to placement consultancy, we hold specialization in
+                  rendering effective solutions to clients’ variegated needs.
+                  Right from Banking, Financial and Insurance to Manufacturing
+                  and Hospitality to BPO/ IT, we extend one of kinds services
+                  across multiple disciplines. Our workforce solutions are based
+                  on market research, industry expertise and domain knowledge,
+                  Thus, we provide competitive edge to both i.e. Recruiters and
+                  Jobseekers.
+                </p>
 
-              <p>
-                We assist students with their travel and relocation for the
-                course of study thereby ensuring a worry-free transition.
-                Moving to another country, be it for study or settling, is no
-                trivial task. We understand the stress and pressure this phase
-                can cause. Excitement at times gives way to anxieties as one
-                gets to hear a lot of experiences about the country often true
-                or untrue, anxieties about the new land, people, customs take
-                over your senses. We view this as a transitional phase hence
-                offering a complete and thorough journey and relocation
-                service, leaving no stone unturned to ensure a smooth
-                transition. Our travel and relocation expertise enables you to
-                literally relax while we handle it all.
-              </p>
-              <p>
-                Many of us dream of a day when we can embark on an
-                international tour, but most feel lost when it comes to
-                planning out the said trip. While many of us lack the time it
-                takes to map out all the details of the international tour
-                packages, what can help us move our plan along is a trusted
-                partner turning our international tour from a dream to a goal.
-                If you’re looking for an international tour, you’ve come to
-                the right place. Here you will be able to search, plan and
-                book your perfect international tour packages along with
-                expert travel advice, in-depth destination information, and
-                lots of travel tips. You are sure to get inspired to travel
-                the world with SOTC India. To get you started planning your
-                next international tour, we have a wide range of International
-                holiday packages to choose from and for the avid traveler in
-                you, we have completely customized holiday options as well.
-              </p>
-            </div>
+                <p>
+                  We assist students with their travel and relocation for the
+                  course of study thereby ensuring a worry-free transition.
+                  Moving to another country, be it for study or settling, is no
+                  trivial task. We understand the stress and pressure this phase
+                  can cause. Excitement at times gives way to anxieties as one
+                  gets to hear a lot of experiences about the country often true
+                  or untrue, anxieties about the new land, people, customs take
+                  over your senses. We view this as a transitional phase hence
+                  offering a complete and thorough journey and relocation
+                  service, leaving no stone unturned to ensure a smooth
+                  transition. Our travel and relocation expertise enables you to
+                  literally relax while we handle it all.
+                </p>
+                <p>
+                  Many of us dream of a day when we can embark on an
+                  international tour, but most feel lost when it comes to
+                  planning out the said trip. While many of us lack the time it
+                  takes to map out all the details of the international tour
+                  packages, what can help us move our plan along is a trusted
+                  partner turning our international tour from a dream to a goal.
+                  If you’re looking for an international tour, you’ve come to
+                  the right place. Here you will be able to search, plan and
+                  book your perfect international tour packages along with
+                  expert travel advice, in-depth destination information, and
+                  lots of travel tips. You are sure to get inspired to travel
+                  the world with SOTC India. To get you started planning your
+                  next international tour, we have a wide range of International
+                  holiday packages to choose from and for the avid traveler in
+                  you, we have completely customized holiday options as well.
+                </p>
+              </div>
 
-            <div className="col-6">
-              <div className="col-12 ">
-                <div className="row">
-                  <div className=" col-6">
-                    <img src="\girlsss.png" className="Imagessides" />
-                  </div>
+              <div className="col-6">
+                <div className="col-12 ">
+                  <div className="row">
+                    <div className=" col-6">
+                      <img src="\girlsss.png" className="Imagessides" />
+                    </div>
 
-                  <div className="col-6">
-                    <img src="\imagespass.png" className="Imagespassport" />
-                    <div className="mt-2">
-                      <img src="\Teamdis.png" className="Imagespassport" />
+                    <div className="col-6">
+                      <img src="\imagespass.png" className="Imagespassport" />
+                      <div className="mt-2">
+                        <img src="\Teamdis.png" className="Imagespassport" />
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+
+          <div className=" col-12 mt-5  sideimageparahide ">
+            <div className="col-6 align-items-center justify-content-center d-flex">
+              <div className="col-12  align-items-center justify-content-center d-flex">
+                <div className="row">
+                  <div className=" col-8">
+                    <img src="\girlsss.png" className="Imagessidehide" />
+                  </div>
+
+                  <div className="col-4">
+                    <img src="\imagespass.png" className="Imagessidehide" />
+                    <div className="mt-2">
+                      <img src="\Teamdis.png" className="Imagessidehide" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-12  mt-3">
+              <h1>Discover the World with Our Comprehensive Services</h1>
+
+              <p>
+                Perfect Job Consultancy is an India based recruitment placement
+                and training consultancy, having an ultimate package of services
+                for recruiters as well as jobseekers. When it comes to placement
+                consultancy, we hold specialization in rendering effective
+                solutions to clients’ variegated needs. Right from Banking,
+                Financial and Insurance to Manufacturing and Hospitality to BPO/
+                IT, we extend one of kinds services across multiple disciplines.
+                Our workforce solutions are based on market research, industry
+                expertise and domain knowledge, Thus, we provide competitive
+                edge to both i.e. Recruiters and Jobseekers.
+              </p>
+
+              <p>
+                We assist students with their travel and relocation for the
+                course of study thereby ensuring a worry-free transition. Moving
+                to another country, be it for study or settling, is no trivial
+                task. We understand the stress and pressure this phase can
+                cause. Excitement at times gives way to anxieties as one gets to
+                hear a lot of experiences about the country often true or
+                untrue, anxieties about the new land, people, customs take over
+                your senses. We view this as a transitional phase hence offering
+                a complete and thorough journey and relocation service, leaving
+                no stone unturned to ensure a smooth transition. Our travel and
+                relocation expertise enables you to literally relax while we
+                handle it all.
+              </p>
+              <p>
+                Many of us dream of a day when we can embark on an international
+                tour, but most feel lost when it comes to planning out the said
+                trip. While many of us lack the time it takes to map out all the
+                details of the international tour packages, what can help us
+                move our plan along is a trusted partner turning our
+                international tour from a dream to a goal. If you’re looking for
+                an international tour, you’ve come to the right place. Here you
+                will be able to search, plan and book your perfect international
+                tour packages along with expert travel advice, in-depth
+                destination information, and lots of travel tips. You are sure
+                to get inspired to travel the world with SOTC India. To get you
+                started planning your next international tour, we have a wide
+                range of International holiday packages to choose from and for
+                the avid traveler in you, we have completely customized holiday
+                options as well.
+              </p>
+            </div>
+          </div>
         </div>
 
-        <div className="  mt-5  sideimageparahide ">
-          <div className="col-12 ">
-            <div className="col-12   ">
-              <div className="row">
-                <div className=" col">
-                  <img src="\girlsss.png" className="Imagessidehide" />
+        <div className="  container mt-5  sideimageparahide ">
+          <div className="col-md-12  ">
+            <div className="row">
+              <div className="col-6">
+                <div className="col-12">
+                  <div className="col-12 ">
+                    <img src="\StudyAb.png" className="Imagesstudyicon" />
+
+                    <p className=" mainSectionsec mt-2 align-items-center d-flex justify-content-center">
+                      Study Abroad
+                    </p>
+                  </div>
+                  <div className="col-12">
+                    <img src="\consulting.png" className="Imagesstudyicon" />
+                    <p className="mainSectionsec mt-2 align-items-center d-flex justify-content-center">
+                      Consulting
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="col-6">
+                <div className="col">
+                  <img src="\jobhire.png" className="Imagesstudyicon" />
+                  <p className=" mainSectionsec mt-2 align-items-center d-flex justify-content-center">
+                    Abroad Job Assistances
+                  </p>
                 </div>
 
-                <div className="col ">
-                  <img src="\imagespass.png" className="Imagessidehide" />
-                  <div className="mt-2">
-                    <img src="\Teamdis.png" className="Imagessidehide" />
+                <div className="col">
+                  <img src="\Helpsupport.png" className="Imagesstudyicon" />
+                  <p className=" mainSectionsec mt-2 align-items-center d-flex justify-content-center">
+                    {" "}
+                    Help & Support
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className=" col-12 mt-5  sideimagepara">
+            <div className="row">
+              <div className="col-6">
+                <h1>Discover the World with Our Comprehensive Services</h1>
+
+                <p>
+                  Perfect Job Consultancy is an India based recruitment
+                  placement and training consultancy, having an ultimate package
+                  of services for recruiters as well as jobseekers. When it
+                  comes to placement consultancy, we hold specialization in
+                  rendering effective solutions to clients’ variegated needs.
+                  Right from Banking, Financial and Insurance to Manufacturing
+                  and Hospitality to BPO/ IT, we extend one of kinds services
+                  across multiple disciplines. Our workforce solutions are based
+                  on market research, industry expertise and domain knowledge,
+                  Thus, we provide competitive edge to both i.e. Recruiters and
+                  Jobseekers.
+                </p>
+
+                <p>
+                  We assist students with their travel and relocation for the
+                  course of study thereby ensuring a worry-free transition.
+                  Moving to another country, be it for study or settling, is no
+                  trivial task. We understand the stress and pressure this phase
+                  can cause. Excitement at times gives way to anxieties as one
+                  gets to hear a lot of experiences about the country often true
+                  or untrue, anxieties about the new land, people, customs take
+                  over your senses. We view this as a transitional phase hence
+                  offering a complete and thorough journey and relocation
+                  service, leaving no stone unturned to ensure a smooth
+                  transition. Our travel and relocation expertise enables you to
+                  literally relax while we handle it all.
+                </p>
+                <p>
+                  Many of us dream of a day when we can embark on an
+                  international tour, but most feel lost when it comes to
+                  planning out the said trip. While many of us lack the time it
+                  takes to map out all the details of the international tour
+                  packages, what can help us move our plan along is a trusted
+                  partner turning our international tour from a dream to a goal.
+                  If you’re looking for an international tour, you’ve come to
+                  the right place. Here you will be able to search, plan and
+                  book your perfect international tour packages along with
+                  expert travel advice, in-depth destination information, and
+                  lots of travel tips. You are sure to get inspired to travel
+                  the world with SOTC India. To get you started planning your
+                  next international tour, we have a wide range of International
+                  holiday packages to choose from and for the avid traveler in
+                  you, we have completely customized holiday options as well.
+                </p>
+              </div>
+
+              <div className="col-6">
+                <div className="col-12 ">
+                  <div className="row">
+                    <div className=" col-6">
+                      <img src="\girlsss.png" className="Imagessides" />
+                    </div>
+
+                    <div className="col-6">
+                      <img src="\imagespass.png" className="Imagespassport" />
+                      <div className="mt-2">
+                        <img src="\Teamdis.png" className="Imagespassport" />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="col-12  mt-3">
-            <h1>Discover the World with Our Comprehensive Services</h1>
+          <div className="  mt-5  sideimageparahide ">
+            <div className="col-12 ">
+              <div className="col-12   ">
+                <div className="row">
+                  <div className=" col">
+                    <img src="\girlsss.png" className="Imagessidehide" />
+                  </div>
 
-            <p>
-              Perfect Job Consultancy is an India based recruitment placement
-              and training consultancy, having an ultimate package of services
-              for recruiters as well as jobseekers. When it comes to placement
-              consultancy, we hold specialization in rendering effective
-              solutions to clients’ variegated needs. Right from Banking,
-              Financial and Insurance to Manufacturing and Hospitality to BPO/
-              IT, we extend one of kinds services across multiple disciplines.
-              Our workforce solutions are based on market research, industry
-              expertise and domain knowledge, Thus, we provide competitive
-              edge to both i.e. Recruiters and Jobseekers.
-            </p>
+                  <div className="col ">
+                    <img src="\imagespass.png" className="Imagessidehide" />
+                    <div className="mt-2">
+                      <img src="\Teamdis.png" className="Imagessidehide" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-            <p>
-              We assist students with their travel and relocation for the
-              course of study thereby ensuring a worry-free transition. Moving
-              to another country, be it for study or settling, is no trivial
-              task. We understand the stress and pressure this phase can
-              cause. Excitement at times gives way to anxieties as one gets to
-              hear a lot of experiences about the country often true or
-              untrue, anxieties about the new land, people, customs take over
-              your senses. We view this as a transitional phase hence offering
-              a complete and thorough journey and relocation service, leaving
-              no stone unturned to ensure a smooth transition. Our travel and
-              relocation expertise enables you to literally relax while we
-              handle it all.
-            </p>
-            <p>
-              Many of us dream of a day when we can embark on an international
-              tour, but most feel lost when it comes to planning out the said
-              trip. While many of us lack the time it takes to map out all the
-              details of the international tour packages, what can help us
-              move our plan along is a trusted partner turning our
-              international tour from a dream to a goal. If you’re looking for
-              an international tour, you’ve come to the right place. Here you
-              will be able to search, plan and book your perfect international
-              tour packages along with expert travel advice, in-depth
-              destination information, and lots of travel tips. You are sure
-              to get inspired to travel the world with SOTC India. To get you
-              started planning your next international tour, we have a wide
-              range of International holiday packages to choose from and for
-              the avid traveler in you, we have completely customized holiday
-              options as well.
-            </p>
+            <div className="col-12  mt-3">
+              <h1>Discover the World with Our Comprehensive Services</h1>
+
+              <p>
+                Perfect Job Consultancy is an India based recruitment placement
+                and training consultancy, having an ultimate package of services
+                for recruiters as well as jobseekers. When it comes to placement
+                consultancy, we hold specialization in rendering effective
+                solutions to clients’ variegated needs. Right from Banking,
+                Financial and Insurance to Manufacturing and Hospitality to BPO/
+                IT, we extend one of kinds services across multiple disciplines.
+                Our workforce solutions are based on market research, industry
+                expertise and domain knowledge, Thus, we provide competitive
+                edge to both i.e. Recruiters and Jobseekers.
+              </p>
+
+              <p>
+                We assist students with their travel and relocation for the
+                course of study thereby ensuring a worry-free transition. Moving
+                to another country, be it for study or settling, is no trivial
+                task. We understand the stress and pressure this phase can
+                cause. Excitement at times gives way to anxieties as one gets to
+                hear a lot of experiences about the country often true or
+                untrue, anxieties about the new land, people, customs take over
+                your senses. We view this as a transitional phase hence offering
+                a complete and thorough journey and relocation service, leaving
+                no stone unturned to ensure a smooth transition. Our travel and
+                relocation expertise enables you to literally relax while we
+                handle it all.
+              </p>
+              <p>
+                Many of us dream of a day when we can embark on an international
+                tour, but most feel lost when it comes to planning out the said
+                trip. While many of us lack the time it takes to map out all the
+                details of the international tour packages, what can help us
+                move our plan along is a trusted partner turning our
+                international tour from a dream to a goal. If you’re looking for
+                an international tour, you’ve come to the right place. Here you
+                will be able to search, plan and book your perfect international
+                tour packages along with expert travel advice, in-depth
+                destination information, and lots of travel tips. You are sure
+                to get inspired to travel the world with SOTC India. To get you
+                started planning your next international tour, we have a wide
+                range of International holiday packages to choose from and for
+                the avid traveler in you, we have completely customized holiday
+                options as well.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-
 
         <div className=" bgstyle  mt-5 ">
           <div className="container pt-5 ">
@@ -569,11 +568,11 @@ export default function Home() {
                 </p>
               </div>
               <div className="col-md-4 ">
-              <div className='bounce'>
-                <img src="\paper.png" className="disandfundimg" />
-                <p className="mainSectionsec mt-2 align-items-center d-flex justify-content-center">
-                  Documention
-                </p>
+                <div className="bounce">
+                  <img src="\paper.png" className="disandfundimg" />
+                  <p className="mainSectionsec mt-2 align-items-center d-flex justify-content-center">
+                    Documention
+                  </p>
                 </div>
                 <div className="col-md-12 bounce">
                   <img src="\girlsplace.png" className="disandfundimg" />
@@ -599,11 +598,10 @@ export default function Home() {
               <h1>Choose Your Favourite Study Destinations</h1>
             </div>
             <div>
-            <div className=' mt-5'>
-         <MyCarousel/>
-         </div>
-          </div>
-          
+              <div className=" mt-5">
+                <MyCarousel />
+              </div>
+            </div>
           </div>
         </div>
 
@@ -614,109 +612,108 @@ export default function Home() {
               <h1>Professional Destinations</h1>
             </div>
             <div className="mt-3 ">
-            <FinalCarousel />
+              <FinalCarousel />
             </div>
           </div>
         </div>
-<div>
-
-<div className="col-12 container p-5">
-<div className="row">
-<div className="col-md-4 ">
-</div>
-<div className="col-md-8">
-<div className="col-md-12 ">
-<div className="row ">
-<div className="col-md-4 ">
-<h1 style={{color:'#24415f' ,fontWeight:800}}>Visiting Visa and <br/> Flight Ticket Services</h1>
-</div>
-<div className="col-md-8">
-<p style={{color: '#4E4E4D'}}>
-Exploring new destinations and experiencing diverse cultures begins with obtaining a visiting visa, whether for vacation, visiting family, or attending events abroad. This process opens doors to new possibilities and enriches personal growth through cultural exchange. Additionally, securing the perfect flight is crucial for a seamless travel experience, ensuring convenience and comfort. Our services specialize in navigating visa applications and booking flights, tailored to meet your specific needs. Contact us today to start your journey with expert guidance and hassle-free travel arrangements.
-</p>
-</div>
-
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div className='filling'>
-
-
-
-</div>
-
-
-<div className=" linearbg pt-5 pb-5 ">
-        <div className=" container  ">
-       
-        <Testmoni />
+        <div>
+          <div className="col-12 container p-5">
+            <div className="row">
+              <div className="col-md-4 "></div>
+              <div className="col-md-8">
+                <div className="col-md-12 ">
+                  <div className="row ">
+                    <div className="col-md-4 ">
+                      <h1 style={{ color: "#24415f", fontWeight: 800 }}>
+                        Visiting Visa and <br /> Flight Ticket Services
+                      </h1>
+                    </div>
+                    <div className="col-md-8">
+                      <p style={{ color: "#4E4E4D" }}>
+                        Exploring new destinations and experiencing diverse
+                        cultures begins with obtaining a visiting visa, whether
+                        for vacation, visiting family, or attending events
+                        abroad. This process opens doors to new possibilities
+                        and enriches personal growth through cultural exchange.
+                        Additionally, securing the perfect flight is crucial for
+                        a seamless travel experience, ensuring convenience and
+                        comfort. Our services specialize in navigating visa
+                        applications and booking flights, tailored to meet your
+                        specific needs. Contact us today to start your journey
+                        with expert guidance and hassle-free travel
+                        arrangements.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          
-             
-          
           </div>
+        </div>
+        <div className="filling"></div>
 
-   
+        <div className=" linearbg pt-5 pb-5 ">
+          <div className=" container  ">
+            <Testmoni />
+          </div>
+        </div>
 
         <div className="  partnerbg mt-5 ">
-        <div className="container pt-5 ">
-          <div className="d-flex align-items-center  gap-4 ">
-            <img src="/sidehum.png" className="sidehum" />
-            <h1>Our Partnering Universities</h1>
+          <div className="container pt-5 ">
+            <div className="d-flex align-items-center  gap-4 ">
+              <img src="/sidehum.png" className="sidehum" />
+              <h1>Our Partnering Universities</h1>
+            </div>
+            <div className="container p-5 col-12">
+              <Universcites />
+            </div>
           </div>
-          <div className="container p-5 col-12">
-          <Universcites/>
+        </div>
+
+        <div className="  sliderServices  ">
+          <div className="container  ">
+            <div className="d-flex align-items-center  justify-content-center mt-5">
+              <h1 className="Severour">Our Services</h1>
+            </div>
+            <div className="container p-5 col-12">
+              <div className="col-md-4">
+                <div className="">
+                  <div className="d-flex align-items-center d-flex boxservices">
+                    <RiArrowRightSLine className="footericon" />
+                    <p className="pt-3 footerstextservices">
+                      Immigration and Study Abroad
+                    </p>
+                  </div>
+
+                  <div className="d-flex align-items-center d-flexc boxservices mt-3">
+                    <RiArrowRightSLine className="footericon" />
+                    <p className="pt-1 footerstextservices">
+                      Flight Ticket Bookings
+                    </p>
+                  </div>
+
+                  <div className="d-flex align-items-center d-flex boxservices mt-3">
+                    <RiArrowRightSLine className="footericon" />
+                    <p className="pt-1 footerstextservices ">
+                      Visit Visa (All Countries)
+                    </p>
+                  </div>
+
+                  <div className="d-flex align-items-center d-flex boxservices mt-3">
+                    <RiArrowRightSLine className="footericon" />
+                    <p className="pt-1 footerstextservices">Study Visa</p>
+                  </div>
+
+                  <div className="d-flex align-items-center d-flex boxservices mt-3 mb-5">
+                    <RiArrowRightSLine className="footericon" />
+                    <p className="pt-1 footerstextservices">Work Permit</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
-
-
-      <div className="  sliderServices  ">
-      <div className="container  ">
-        <div className="d-flex align-items-center  justify-content-center mt-5">
-         
-        <h1 className='Severour'>Our Services</h1>
-        </div>
-        <div className="container p-5 col-12">
-        <div className='col-md-4'>
-        <div className=''>
-        <div className='d-flex align-items-center d-flex boxservices'>
-        
-        <RiArrowRightSLine className='footericon'/><p className="pt-3 footerstextservices">Immigration and  Study Abroad</p>
-        </div>
-        
-        
-        
-        
-        <div className='d-flex align-items-center d-flexc boxservices mt-3'>
-        <RiArrowRightSLine className='footericon'/><p className="pt-1 footerstextservices">Flight Ticket Bookings</p>
-        </div>
-        
-        <div className='d-flex align-items-center d-flex boxservices mt-3'>
-        <RiArrowRightSLine className='footericon'/><p className="pt-1 footerstextservices ">Visit Visa (All Countries)</p>
-        </div>
-        
-        <div className='d-flex align-items-center d-flex boxservices mt-3'>
-        <RiArrowRightSLine className='footericon'/><p className="pt-1 footerstextservices">Study Visa</p>
-        </div>
-        
-        <div className='d-flex align-items-center d-flex boxservices mt-3 mb-5'>
-        <RiArrowRightSLine className='footericon'/><p className="pt-1 footerstextservices">Work Permit</p>
-        </div>
-        
-        </div>
-        
-        
-        </div>
-        </div>
-      </div>
-    </div>
-
-       
         <div className="container  mt-5 mb-5 " id="contactus">
           <div className="container col-md-12 mt-5 slidescontact">
             <div className="row  ">
@@ -734,9 +731,7 @@ Exploring new destinations and experiencing diverse cultures begins with obtaini
                   <div className="d-flex align-items-center d-flex">
                     <MdEmail />
                     <a href="mailto:info@kateexodus.com">
-                      <p className="pt-3 contactusstext">
-                      info@kateexodus.com
-                      </p>
+                      <p className="pt-3 contactusstext">info@kateexodus.com</p>
                     </a>
                   </div>
 
@@ -769,105 +764,120 @@ Exploring new destinations and experiencing diverse cultures begins with obtaini
               </div>
 
               <form onSubmit={handleSubmit} className="col-md-6">
-              <div className="mb-2">
-                <label>Full Name</label>
-              </div>
-              <input
-                className="inputstyle"
-                placeholder=""
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-              />
-              {errors.name && <p style={{ color: 'red' }}>{errors.name}</p>}
-        
-              <div className="mt-2">
-                <label>Email</label>
-              </div>
-              <input
-                className="inputstyle"
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-              />
-              {errors.email && <p style={{ color: 'red' }}>{errors.email}</p>}
-        
-              <div className="">
-                <label>Contact Number</label>
-              </div>
-              <PhoneInput
-                country={'in'}
-                value={formData.phone}
-                onChange={handlePhoneChange}
-                inputClass="inputstyle"
-              />
-              {errors.phone && <p style={{ color: 'red' }}>{errors.phone}</p>}
-        
-              <div className="">
-                <label>Subject</label>
-              </div>
-              <select
-                className="inputstyle"
-                name="selectOption"
-                value={formData.selectOption}
-                onChange={handleChange}
-              >
-                <option value="">Services</option>
-                <option value="immigration">Immigration and Study Abroad</option>
-                <option value="flight">Flight Ticket Bookings</option>
-                <option value="visitVisa">Visit Visa</option>
-                <option value="studyVisa">Study Visa</option>
-                <option value="workPermit">Work Permit</option>
-              </select>
-              {errors.selectOption && <p style={{ color: 'red' }}>{errors.selectOption}</p>}
-        
-              <div className="">
-                <label>Message</label>
-              </div>
-              <textarea
-                className="inputstylearea"
-                placeholder=""
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-              />
-              {errors.message && <p style={{ color: 'red' }}>{errors.message}</p>}
-        
-              <button  className="submitbutton" type="submit">
-                Submit
-              </button>
-              {showModal && (
-                <div className="modal">
-                  <div className="modal-content">
-                    <span className="close" onClick={handleCloseModal}>&times;</span>
-                    <p>{userMsg}</p>
-                  </div>
+                <div className="mb-2">
+                  <label>Full Name</label>
                 </div>
-              )}
-            </form>
-             
-              <Modal show={showModal} onHide={handleCloseModal}>
-              <Modal.Header closeButton>
-                <Modal.Title>Email Sent</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
-                <p>{userMsg}</p>
-              </Modal.Body>
-              <Modal.Footer>
-                <Button variant="secondary" onClick={handleCloseModal}>
-                  Close
+                <input
+                  className="inputstyle"
+                  placeholder=""
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                />
+                {errors.name && <p style={{ color: "red" }}>{errors.name}</p>}
+
+                <div className="mt-2">
+                  <label>Email</label>
+                </div>
+                <input
+                  className="inputstyle"
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+                {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
+
+                <div className="">
+                  <label>Contact Number</label>
+                </div>
+                <PhoneInput
+                  country={"in"}
+                  value={formData.phone}
+                  onChange={handlePhoneChange}
+                  inputClass="inputstyle"
+                />
+                {errors.phone && <p style={{ color: "red" }}>{errors.phone}</p>}
+
+                <div className="">
+                  <label>Subject</label>
+                </div>
+                <select
+                  className="inputstyle"
+                  name="selectOption"
+                  value={formData.selectOption}
+                  onChange={handleChange}
+                >
+                  <option value="">Services</option>
+                  <option value="immigration">
+                    Immigration and Study Abroad
+                  </option>
+                  <option value="flight">Flight Ticket Bookings</option>
+                  <option value="visitVisa">Visit Visa</option>
+                  <option value="studyVisa">Study Visa</option>
+                  <option value="workPermit">Work Permit</option>
+                </select>
+                {errors.selectOption && (
+                  <p style={{ color: "red" }}>{errors.selectOption}</p>
+                )}
+
+                <div className="">
+                  <label>Message</label>
+                </div>
+                <textarea
+                  className="inputstylearea"
+                  placeholder=""
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                />
+                {errors.message && (
+                  <p style={{ color: "red" }}>{errors.message}</p>
+                )}
+
+                {/* <button disable={loader} className="submitbutton" type="submit">
+                  Submit
+                </button> */}
+
+                <Button
+                  variant="primary"
+                  type="submit"
+                  disabled={loader}
+                  className="submitbutton"
+                >
+                  {loader ? (
+                    <>
+                      <Spinner
+                        as="span"
+                        animation="border"
+                        size="sm"
+                        role="status"
+                        aria-hidden="true"
+                      />
+                      <span className="sr-only">Loading...</span>
+                    </>
+                  ) : (
+                    "Submit"
+                  )}
                 </Button>
-              </Modal.Footer>
-            </Modal>
-            
+              </form>
+
+              <Modal show={showModal} onHide={handleCloseModal}>
+                <Modal.Header closeButton>
+                  <Modal.Title>Email Sent</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  <p>{userMsg}</p>
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button variant="secondary" onClick={handleCloseModal}>
+                    Close
+                  </Button>
+                </Modal.Footer>
+              </Modal>
             </div>
           </div>
-
-
-
-    
         </div>
 
         <Footer />
